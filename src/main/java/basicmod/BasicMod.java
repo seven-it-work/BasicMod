@@ -1,9 +1,11 @@
 package basicmod;
 
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.relics.MyRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
 import basicmod.util.TextureLoader;
@@ -12,6 +14,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglFileHandle;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
@@ -20,6 +23,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import demoMod.aberration.relics.Cotton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
@@ -28,10 +32,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @SpireInitializer
-public class BasicMod implements
-        EditStringsSubscriber,
-        EditKeywordsSubscriber,
-        PostInitializeSubscriber {
+public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber, basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber, basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -218,5 +219,51 @@ public class BasicMod implements
         else {
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
+    }
+
+    @Override
+    public void receiveAddAudio() {
+
+    }
+
+    @Override
+    public void receiveEditCards() {
+
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        logger.info("初始化遗物");
+        BaseMod.addRelic(new MyRelic(), RelicType.SHARED);
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+
+    }
+
+    @Override
+    public void receivePostRender(SpriteBatch spriteBatch) {
+
+    }
+
+    @Override
+    public void receivePostUpdate() {
+
+    }
+
+    @Override
+    public void receiveStartAct() {
+
+    }
+
+    @Override
+    public void receiveStartGame() {
+
     }
 }
