@@ -23,7 +23,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
-import demoMod.aberration.relics.Cotton;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
@@ -32,10 +31,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @SpireInitializer
-public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber, basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber, basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber{
+public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber, basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber, basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
-    static { loadModInfo(); }
+
+    static {
+        loadModInfo();
+    }
+
     private static final String resourcesFolder = checkResourcesPath();
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
 
@@ -70,10 +73,10 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
     /*----------Localization----------*/
 
     //This is used to load the appropriate localization files based on language.
-    private static String getLangString()
-    {
+    private static String getLangString() {
         return Settings.language.name().toLowerCase();
     }
+
     private static final String defaultLanguage = "eng";
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
@@ -90,8 +93,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
         if (!defaultLanguage.equals(getLangString())) {
             try {
                 loadLocalization(getLangString());
-            }
-            catch (GdxRuntimeException e) {
+            } catch (GdxRuntimeException e) {
                 e.printStackTrace();
             }
         }
@@ -101,28 +103,27 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
         //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
         //Feel free to comment out/delete any that you don't end up using.
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                localizationPath(lang, "CardStrings.json"));
+                localizationPath(lang, "basicmod-CardStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                localizationPath(lang, "CharacterStrings.json"));
+                localizationPath(lang, "basicmod-CharacterStrings.json"));
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                localizationPath(lang, "EventStrings.json"));
+                localizationPath(lang, "basicmod-EventStrings.json"));
         BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, "OrbStrings.json"));
+                localizationPath(lang, "basicmod-OrbStrings.json"));
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                localizationPath(lang, "PotionStrings.json"));
+                localizationPath(lang, "basicmod-PotionStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                localizationPath(lang, "PowerStrings.json"));
+                localizationPath(lang, "basicmod-PowerStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                localizationPath(lang, "RelicStrings.json"));
+                localizationPath(lang, "basicmod-RelicStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class,
-                localizationPath(lang, "UIStrings.json"));
+                localizationPath(lang, "basicmod-UIStrings.json"));
     }
 
     @Override
-    public void receiveEditKeywords()
-    {
+    public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(localizationPath(defaultLanguage, "basicmod-Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);
         for (KeywordInfo keyword : keywords) {
             keyword.prep();
@@ -130,17 +131,14 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
         }
 
         if (!defaultLanguage.equals(getLangString())) {
-            try
-            {
-                json = Gdx.files.internal(localizationPath(getLangString(), "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+            try {
+                json = Gdx.files.internal(localizationPath(getLangString(), "basicmod-Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
                 keywords = gson.fromJson(json, KeywordInfo[].class);
                 for (KeywordInfo keyword : keywords) {
                     keyword.prep();
                     registerKeyword(keyword);
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 logger.warn(modID + " does not support " + getLangString() + " keywords.");
             }
         }
@@ -148,8 +146,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
 
     private void registerKeyword(KeywordInfo info) {
         BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
-        if (!info.ID.isEmpty())
-        {
+        if (!info.ID.isEmpty()) {
             keywords.put(info.ID, info);
         }
     }
@@ -162,12 +159,15 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
     public static String imagePath(String file) {
         return resourcesFolder + "/images/" + file;
     }
+
     public static String characterPath(String file) {
         return resourcesFolder + "/images/character/" + file;
     }
+
     public static String powerPath(String file) {
         return resourcesFolder + "/images/powers/" + file;
     }
+
     public static String relicPath(String file) {
         return resourcesFolder + "/images/relics/" + file;
     }
@@ -205,7 +205,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
      * This determines the mod's ID based on information stored by ModTheSpire.
      */
     private static void loadModInfo() {
-        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo)->{
+        Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
             AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
             if (annotationDB == null)
                 return false;
@@ -215,8 +215,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
         if (infos.isPresent()) {
             info = infos.get();
             modID = info.ID;
-        }
-        else {
+        } else {
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
     }

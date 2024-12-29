@@ -93,7 +93,7 @@ public abstract class BaseRelic extends CustomRelic {
         RelicStrings text = CardCrawlGame.languagePack.getRelicStrings(ID);
         if (text == null) {
             throw new RuntimeException("The \"" + ID + "\" relic does not have associated text. Make sure " +
-                    "there's no issue with the RelicStrings.json file, and that the ID in the json file matches the " +
+                    "there's no issue with the basicmod-RelicStrings.json file, and that the ID in the json file matches the " +
                     "relic's ID. It should look like \"${modID}:" + GeneralUtils.removePrefix(ID) + "\".");
         }
         return ID;
