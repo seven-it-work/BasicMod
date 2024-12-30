@@ -1,36 +1,29 @@
-# Basic Mod
+# 笑傲江湖mod
 
-This is an empty Slay the Spire mod + a modding tutorial.
+## 描述
+改mod是一个以武侠题材开发的mod
 
-This tutorial will help with setup and the basics of Slay the Spire modding, but it will not teach you Java. If you know nothing of Java or programming in general, you are strongly recommended to look up a free online course and do at least some of it. It is possible to do modding with almost no proper knowledge, but it will make things much more difficult.
+## 卡片
 
----
+### 攻击卡
 
-## Check the wiki to get started:
+降龙十八掌：
 
-https://github.com/Alchyr/BasicMod/wiki
-
----
-
-## Know what you're doing?
-
-You can still use this mod as a base, or you could use another template like https://github.com/DarkVexon/ProTemplate
-
-You can find more options in the pins of the #modding-technical channel in the Slay the Spire discord server.
-
----
-
-### Some HD Slay the Spire art assets (courtesy of Gremious, creator of DefaultMod):
-
-Includes:
-- Empty Relic Template feat. empty bottle
-- Empty Card Template
-- Color-Changable cardback
-- A couple of HD Monster vectors (Louse, Nob, Sentry, Sneaky Gremlin)
-- A coupe of HD items (J.A.X., A Coin)
-- 2 people silhouettes
-- A curse Background
-
-https://github.com/Gremious/StS-DefaultModBase#some-hd-slay-the-spire-art-assets
-
----
+1. 第一式  亢龙有悔：对敌人造成1点，将一张 飞龙在天 加入弃牌堆。 NL 消耗。
+2. 第二式　飞龙在天：对敌人造成2点，将一张 见龙在田 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+3. 第三式　见龙在田：对敌人造成3点，将一张 鸿渐于陆 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+4. 第四式　鸿渐于陆：对敌人造成4点，将一张 潜龙勿用 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+5. 第五式　潜龙勿用：对敌人造成5点，将一张 利涉大川 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+6. 第六式　利涉大川：对敌人造成6点，获得1点护甲，将一张 尺蠖之屈 加入弃牌堆。 NL 消耗。
+7. 第七式　尺蠖之屈：对敌人造成7点，获得2点护甲，将一张 或跃在渊 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+8. 第八式　或跃在渊：对敌人造成8点，获得3点护甲，将一张 双龙取水 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+9. 第九式　双龙取水：对敌人造成9点，获得4点护甲，将一张 神龙摆尾 加入弃牌堆。 NL 并执行上一掌。 NL 消耗。
+10. 第十式　神龙摆尾：对敌人造成10点，获得5点护甲，将一张 突如其来 加入弃牌堆。 NL 消耗。
+11. 第十一式　突如其来：对敌人造成10点，获得1层仪式，将一张 突如其来 时乘六龙。 NL 消耗。
+12. 第十二式　时乘六龙：对敌人造成10点，获得1层人工制品，将一张 突如其来 密云不雨。 NL 并执行上一掌。 NL 消耗。
+13. 第十三式　密云不雨：对敌人造成10点，给与目标2层虚弱，将一张 突如其来 损则有孚。  NL 消耗。
+14. 第十四式　损则有孚：对敌人造成10点，给与目标2层脆弱，将一张 突如其来 龙战于野。 NL 并执行上一掌。 NL 消耗。
+15. 第十五式　龙战于野：对敌人造成10点，给与目标2层易伤，将一张 突如其来 履霜冰至。 NL 并执行上一掌。 NL 消耗。
+16. 第十六式　履霜冰至：对敌人造成10点，给与目标2层中毒，将一张 突如其来 羝羊触藩。 NL 并执行上一掌。 NL 消耗。
+17. 第十七式　羝羊触藩：对敌人造成10点，目标失去2点力量，将一张 突如其来 损则有孚。 NL 并执行上一掌。 NL 消耗。
+18. 第十八式　震惊百里：对敌人造成10点，目标失去2点敏捷。 NL 并执行上一掌。 NL 消耗。
