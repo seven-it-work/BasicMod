@@ -1,71 +1,84 @@
 package basicmod.relics;
 
-import basemod.ReflectionHacks;
-import basemod.abstracts.CustomRelic;
-import basicmod.BasicMod;
-import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnReceivePowerRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.HashMap;
-import java.util.Map;
+import basicmod.BasicMod;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class MyRelic extends BaseRelic {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+public class MyRelic extends BaseRelic implements OnReceivePowerRelic {
+    public static final Logger logger = LogManager.getLogger(BaseRelic.class); //Used to output to the console.
+
     private static final String NAME = "MyRelic";
-    public static final String ID = BasicMod.makeID(NAME);
-    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
-    private long previousDebuffCount;
-    private Map<String, Integer> debuffMap = new HashMap<>();
+    public static final String ID = BasicMod.makeID(NAME);
+
+    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
+
+    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
     public MyRelic() {
         super(ID, NAME, RARITY, SOUND);
+    }
+
+    public static AbstractPower createByAbstractPower(AbstractPower abstractPower, Object... objects) {
+        Class<? extends AbstractPower> aClass = abstractPower.getClass();
+        if (FrailPower.class.equals(aClass)) {
+            return new FrailPower((AbstractCreature) objects[0], (int) objects[1], false);
+        }
+        if (VulnerablePower.class.equals(aClass)) {
+            return new VulnerablePower((AbstractCreature) objects[0], (int) objects[1], false);
+        }
+        if (WeakPower.class.equals(aClass)) {
+            return new WeakPower((AbstractCreature) objects[0], (int) objects[1], false);
+        }
+        try {
+            Constructor<? extends AbstractPower> constructor = aClass.getConstructor(AbstractCreature.class, int.class);
+            return constructor.newInstance(objects);
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+                 IllegalAccessException e) {
+            logger.error("暂时不支持这个负面影响：{}", aClass.getName());
+            throw new RuntimeException(e);
+        }
     }
 
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }
 
-    public void update() {
-        super.update();
-        if (AbstractDungeon.player != null && AbstractDungeon.getCurrMapNode() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            // 这里就是获取当前的状态，但是不一定是玩家的
-            try {
-                // 当前玩家的负面影响数量
-                long sum = AbstractDungeon.player.powers.stream().filter(item -> item.type == AbstractPower.PowerType.DEBUFF).mapToLong(temp -> temp.amount).sum();
-                if (sum > this.previousDebuffCount) {
-                    if (AbstractDungeon.actionManager.currentAction instanceof ApplyPowerAction) {
-                        flash();
-                        AbstractPlayer p = AbstractDungeon.player;
-                        addToBot(new RelicAboveCreatureAction(p, this));
-                        AbstractPower powerToApply = ReflectionHacks.getPrivate(AbstractDungeon.actionManager.currentAction, ApplyPowerAction.class, "powerToApply");
-                        if (powerToApply.type == AbstractPower.PowerType.DEBUFF) {
-                            AbstractDungeon.getMonsters().monsters.forEach(m -> {
-                                addToBot(new ApplyPowerAction(m, p, powerToApply));
-                            });
-                        }
-                    }
-                    this.previousDebuffCount = sum;
-                }
+    public void atBattleStart() {
+    }
 
-            } catch (Exception exception) {
-                exception.printStackTrace();
+    @Override
+    public boolean onReceivePower(AbstractPower abstractPower, AbstractCreature abstractCreature) {
+        // 如果是负面影响，则给所有敌人来相同的负面影响
+        if (abstractPower.type == AbstractPower.PowerType.DEBUFF) {
+            try {
+                AbstractPlayer p = AbstractDungeon.player;
+                AbstractDungeon.getMonsters().monsters.forEach(m -> {
+                    addToBot(new ApplyPowerAction(m, p, createByAbstractPower(abstractPower, m, abstractPower.amount)));
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+        return true;
     }
 
-    public void atBattleStart() {
-        this.debuffMap = new HashMap<>();
-        this.previousDebuffCount = -1;
+    @Override
+    public int onReceivePowerStacks(AbstractPower power, AbstractCreature source, int stackAmount) {
+        return OnReceivePowerRelic.super.onReceivePowerStacks(power, source, stackAmount);
     }
-
 }
