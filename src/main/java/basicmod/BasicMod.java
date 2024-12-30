@@ -5,6 +5,7 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.cards.attack.EighteenDragonSubduingPalmConstant;
 import basicmod.relics.MyRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
@@ -227,7 +228,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
 
     @Override
     public void receiveEditCards() {
-
+        EighteenDragonSubduingPalmConstant.initAbstractEighteenDragonSubduingPalm();
     }
 
     @Override
