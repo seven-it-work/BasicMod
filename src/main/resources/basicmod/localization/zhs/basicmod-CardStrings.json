@@ -87,6 +87,10 @@
   "${modID}:EighteenDragonSubduingPalm18": {
     "NAME": "震惊百里",
     "DESCRIPTION": "降龙十八掌第十八式。对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "降龙十八掌第十八式。对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十八式。对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 还能使用 !M! 次。"
+  },
+  "${modID}:NineYangsScripture": {
+    "NAME": "九阳真经",
+    "DESCRIPTION": "随机获取9层 !M! 个增益（力量、下回合格挡、多重护甲、敏捷、活力、格挡返还、人工制品、缓冲、保留、双倍伤害、免费攻击）。 NL 消耗 。"
   }
 }

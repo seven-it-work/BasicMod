@@ -13,7 +13,7 @@ import basicmod.util.CardStats;
 public class EighteenDragonSubduingPalm7 extends AbstractEighteenDragonSubduingPalm {
     public static final String ID = makeID(EighteenDragonSubduingPalm7.class.getSimpleName());
 
-    private static final CardStats info = new CardStats(CardColor.RED, CardType.ATTACK, CardRarity.BASIC,
+    private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.ATTACK, CardRarity.BASIC,
         CardTarget.ENEMY, 1);
 
     private static final int DAMAGE = 7;
@@ -22,8 +22,8 @@ public class EighteenDragonSubduingPalm7 extends AbstractEighteenDragonSubduingP
 
     public EighteenDragonSubduingPalm7() {
         super(ID, info, 7);
-        setDamage(DAMAGE, 0);
-        setBlock(BLOCK, BLOCK);
+        setDamage(DAMAGE, 1);
+        setBlock(BLOCK, 1);
         this.exhaust = true;
         this.isRunPrePalm = true;
     }

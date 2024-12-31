@@ -5,10 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.FrailPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.*;
 
 import basicmod.BasicMod;
 
@@ -43,6 +40,9 @@ public class MyRelic extends BaseRelic implements OnReceivePowerRelic {
         }
         if (WeakPower.class.equals(aClass)) {
             return new WeakPower((AbstractCreature) objects[0], (int) objects[1], false);
+        }
+        if (StrengthPower.class.equals(aClass)) {
+            return new GainStrengthPower((AbstractCreature) objects[0], (int) objects[1]);
         }
         try {
             Constructor<? extends AbstractPower> constructor = aClass.getConstructor(AbstractCreature.class, int.class);

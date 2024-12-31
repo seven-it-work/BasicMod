@@ -12,14 +12,14 @@ import basicmod.util.CardStats;
 public class EighteenDragonSubduingPalm3 extends AbstractEighteenDragonSubduingPalm {
     public static final String ID = makeID(EighteenDragonSubduingPalm3.class.getSimpleName());
 
-    private static final CardStats info = new CardStats(CardColor.RED, CardType.ATTACK, CardRarity.BASIC,
+    private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.ATTACK, CardRarity.BASIC,
         CardTarget.ENEMY, 1);
 
     private static final int DAMAGE = 3;
 
     public EighteenDragonSubduingPalm3() {
         super(ID, info, 3);
-        setDamage(DAMAGE, 0);
+        setDamage(DAMAGE, 1);
         this.exhaust = true;
         this.isRunPrePalm = true;
     }

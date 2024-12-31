@@ -17,20 +17,28 @@ import java.util.stream.Collectors;
 public class EighteenDragonSubduingPalm18 extends AbstractEighteenDragonSubduingPalm {
     public static final String ID = makeID(EighteenDragonSubduingPalm18.class.getSimpleName());
 
-    private static final CardStats info = new CardStats(CardColor.RED, CardType.ATTACK, CardRarity.BASIC,
-        CardTarget.ENEMY, 1);
+    private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.ATTACK, CardRarity.BASIC,
+            CardTarget.ENEMY, 1);
 
     private static final int DAMAGE = 10;
 
     public EighteenDragonSubduingPalm18() {
         super(ID, info, 18);
-        setDamage(DAMAGE, 0);
+        setDamage(DAMAGE, 1);
+        setMagic(2, 0);
         this.exhaust = true;
         this.isRunPrePalm = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.upgraded) {
+            this.exhaust = false;
+            setMagic(this.baseMagicNumber - 1, 0);
+        }
+        if (this.baseMagicNumber == 0) {
+            this.exhaust = true;
+        }
         super.use(p, m);
         this.runPlam(p, m);
     }
@@ -38,14 +46,12 @@ public class EighteenDragonSubduingPalm18 extends AbstractEighteenDragonSubduing
     @Override
     protected void runPlam(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL),
-            AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 
         List<AbstractPower> abstractPowers = abstractMonster.powers.stream()
-            .filter(abstractPower -> abstractPower.type == AbstractPower.PowerType.BUFF)
-            .collect(Collectors.toList());
-        abstractPowers.forEach(abstractPower -> {
-            this.addToBot(new RemoveSpecificPowerAction(abstractMonster, abstractMonster, abstractPower));
-        });
+                .filter(abstractPower -> abstractPower.type == AbstractPower.PowerType.BUFF)
+                .collect(Collectors.toList());
+        abstractPowers.forEach(abstractPower -> this.addToBot(new RemoveSpecificPowerAction(abstractMonster, abstractMonster, abstractPower)));
 
     }
 
