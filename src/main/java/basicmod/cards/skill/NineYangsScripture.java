@@ -19,7 +19,7 @@ import java.util.List;
 
 public class NineYangsScripture extends BaseCard {
 
-    public static final String ID = makeID(EighteenDragonSubduingPalm1.class.getSimpleName());
+    public static final String ID = makeID(NineYangsScripture.class.getSimpleName());
 
     private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.SKILL, CardRarity.BASIC,
             CardTarget.ENEMY, 1);
