@@ -10,7 +10,7 @@ import basicmod.util.CardStats;
 public abstract class AbstractEighteenDragonSubduingPalm extends BaseCard {
 
     // 是否执行上一掌
-    protected boolean isRunPrePalm = false;
+    protected boolean isRunPrePalm = true;
 
     // 从1开始，所以小标要-1
     protected int index = -1;

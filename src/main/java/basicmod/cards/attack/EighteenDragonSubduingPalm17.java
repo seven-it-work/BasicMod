@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 
 import basicmod.util.CardStats;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class EighteenDragonSubduingPalm17 extends AbstractEighteenDragonSubduingPalm {
     public static final String ID = makeID(EighteenDragonSubduingPalm17.class.getSimpleName());
@@ -42,7 +43,7 @@ public class EighteenDragonSubduingPalm17 extends AbstractEighteenDragonSubduing
             AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         if (abstractMonster != null && !abstractMonster.hasPower("Artifact")) {
             this.addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer,
-                new GainStrengthPower(abstractMonster, this.magicNumber), this.magicNumber));
+                new StrengthPower(abstractMonster, -this.magicNumber), -this.magicNumber));
         }
 
     }

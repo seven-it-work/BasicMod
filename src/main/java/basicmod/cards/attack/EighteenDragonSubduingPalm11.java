@@ -26,7 +26,7 @@ public class EighteenDragonSubduingPalm11 extends AbstractEighteenDragonSubduing
         setDamage(DAMAGE, 0);
         this.baseMagicNumber = BASE_MAGIC_NUMBER;
         this.magicNumber = this.baseMagicNumber;
-        this.exhaust = true;
+        this.exhaust = false;
     }
 
     @Override

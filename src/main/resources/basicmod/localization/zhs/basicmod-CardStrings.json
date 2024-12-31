@@ -1,102 +1,92 @@
 {
   "${modID}:EighteenDragonSubduingPalm1": {
     "NAME": "亢龙有悔",
-    "DESCRIPTION": "降龙十八掌第一式。对敌人造成 !D! 点伤害，将一张 飞龙在天 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，将一张 飞龙在天+ 加入弃牌堆。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第一式。对敌人造成 !D! 点伤害，将一张 飞龙在天 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第一式。对敌人造成 !D! 点伤害，将一张 飞龙在天+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm2": {
     "NAME": "飞龙在天",
     "DESCRIPTION": "降龙十八掌第二式。对敌人造成 !D! 点伤害，将一张 见龙在田 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，将一张 见龙在田+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第二式。对敌人造成 !D! 点伤害，将一张 见龙在田+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm3": {
     "NAME": "见龙在田",
-    "DESCRIPTION": "降龙十八掌第三式。对敌人造成 !D! 点伤害，将一张 鸿渐于陆 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，将一张 鸿渐于陆+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第三式。对敌人造成 !D! 点伤害，将一张 鸿渐于陆 加入弃牌堆。 ",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第三式。对敌人造成 !D! 点伤害，将一张 鸿渐于陆+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm4": {
     "NAME": "鸿渐于陆",
     "DESCRIPTION": "降龙十八掌第四式。对敌人造成 !D! 点伤害，将一张 潜龙勿用 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，将一张 潜龙勿用+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第四式。对敌人造成 !D! 点伤害，将一张 潜龙勿用+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm5": {
     "NAME": "潜龙勿用",
     "DESCRIPTION": "降龙十八掌第五式。对敌人造成 !D! 点伤害，将一张 利涉大川 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，将一张 利涉大川+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第五式。对敌人造成 !D! 点伤害，将一张 利涉大川+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm6": {
     "NAME": "利涉大川",
     "DESCRIPTION": "降龙十八掌第六式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 尺蠖之屈 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 尺蠖之屈+ 加入弃牌堆。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第六式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 尺蠖之屈+ 加入弃牌堆。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm7": {
     "NAME": "尺蠖之屈",
-    "DESCRIPTION": "降龙十八掌第七式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 或跃在渊 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 或跃在渊+ 加入弃牌堆。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第七式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 或跃在渊 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第七式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 或跃在渊+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm8": {
     "NAME": "或跃在渊",
-    "DESCRIPTION": "降龙十八掌第八式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 双龙取水 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 双龙取水+ 加入弃牌堆。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第八式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 双龙取水 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第八式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 双龙取水+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm9": {
     "NAME": "双龙取水",
-    "DESCRIPTION": "降龙十八掌第九式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 神龙摆尾 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 神龙摆尾+ 加入弃牌堆。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第九式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 神龙摆尾 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第九式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 神龙摆尾+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm10": {
     "NAME": "神龙摆尾",
     "DESCRIPTION": "降龙十八掌第十式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 突如其来 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 突如其来+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十式。对敌人造成 !D! 点伤害，获得 !B! 点 格挡 ，将一张 突如其来+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm11": {
     "NAME": "突如其来",
     "DESCRIPTION": "降龙十八掌第十一式。对敌人造成 !D! 点伤害，获得 !M! 层 力量 ，将一张 时乘六龙 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !M! 层 力量 ，将一张 时乘六龙 加入弃牌堆。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十一式。对敌人造成 !D! 点伤害，获得 !M! 层 力量 ，将一张 时乘六龙+ 加入弃牌堆。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm12": {
     "NAME": "时乘六龙",
     "DESCRIPTION": "降龙十八掌第十二式。对敌人造成 !D! 点伤害，获得 !M! 层 人工制品 ，将一张 密云不雨 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，获得 !M! 层 人工制品 ，将一张 密云不雨 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十二式。对敌人造成 !D! 点伤害，获得 !M! 层 人工制品 ，将一张 密云不雨+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm13": {
     "NAME": "密云不雨",
-    "DESCRIPTION": "降龙十八掌第十三式。对敌人造成 !D! 点伤害，给予 !M! 层 虚弱 ，将一张 损则有孚 加入弃牌堆。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，给予 !M! 层 虚弱 ，将一张 损则有孚 加入弃牌堆。 NL 消耗 。"
+    "DESCRIPTION": "降龙十八掌第十三式。对敌人造成 !D! 点伤害，给予 !M! 层 虚弱 ，将一张 损则有孚 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十三式。对敌人造成 !D! 点伤害，给予 !M! 层 虚弱 ，将一张 损则有孚+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm14": {
     "NAME": "损则有孚",
     "DESCRIPTION": "降龙十八掌第十四式。对敌人造成 !D! 点伤害，给予 !M! 层 脆弱 ，将一张 龙战于野 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，给予 !M! 层 脆弱 ，将一张 龙战于野 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十四式。对敌人造成 !D! 点伤害，给予 !M! 层 脆弱 ，将一张 龙战于野+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm15": {
     "NAME": "龙战于野",
     "DESCRIPTION": "降龙十八掌第十五式。对敌人造成 !D! 点伤害，给予 !M! 层 易伤 ，将一张 履霜冰至 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，给予 !M! 层 易伤 ，将一张 履霜冰至 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十五式。对敌人造成 !D! 点伤害，给予 !M! 层 易伤 ，将一张 履霜冰至+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm16": {
     "NAME": "履霜冰至",
     "DESCRIPTION": "降龙十八掌第十六式。对敌人造成 !D! 点伤害，给予 !M! 层 中毒 ，将一张 羝羊触藩 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，给予 !M! 层 中毒 ，将一张 羝羊触藩 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十六式。对敌人造成 !D! 点伤害，给予 !M! 层 中毒 ，将一张 羝羊触藩+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm17": {
     "NAME": "羝羊触藩",
     "DESCRIPTION": "降龙十八掌第十七式。对敌人造成 !D! 点伤害，敌人失去 !M! 点 力量 ，将一张 损则有孚 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，敌人失去 !M! 点 力量 ，将一张 损则有孚 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十七式。对敌人造成 !D! 点伤害，敌人失去 !M! 点 力量 ，将一张 损则有孚+ 加入弃牌堆。 NL 并执行上一掌。 NL 消耗 。"
   },
   "${modID}:EighteenDragonSubduingPalm18": {
     "NAME": "震惊百里",
     "DESCRIPTION": "降龙十八掌第十八式。对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 NL 消耗 。"
-  },
-  "${modID}:ExampleCard": {
-    "NAME": "Name",
-    "DESCRIPTION": "Description. NL Second line.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "You can put more text in here.",
-      "If you need to use it for stuff.",
-      "Blizzard is a good example for this."
-    ]
+    "UPGRADE_DESCRIPTION": "降龙十八掌第十八式。对敌人造成 !D! 点伤害，目标失去所有正面影响。 NL 并执行上一掌。 NL 消耗 。"
   }
 }
