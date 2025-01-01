@@ -25,14 +25,6 @@ public class EighteenDragonSubduingPalm15 extends AbstractEighteenDragonSubduing
         super(ID, info, 15);
         setDamage(DAMAGE, 1);
         setMagic(BASE_MAGIC_NUMBER,1);
-        this.exhaust = true;
-        this.isRunPrePalm = true;
-    }
-
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        super.use(p, m);
-        this.runPlam(p, m);
     }
 
     @Override

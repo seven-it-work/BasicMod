@@ -20,8 +20,6 @@ public class EighteenDragonSubduingPalm3 extends AbstractEighteenDragonSubduingP
     public EighteenDragonSubduingPalm3() {
         super(ID, info, 3);
         setDamage(DAMAGE, 1);
-        this.exhaust = true;
-        this.isRunPrePalm = true;
     }
 
     @Override

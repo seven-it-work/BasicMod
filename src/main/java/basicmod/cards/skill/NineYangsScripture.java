@@ -38,8 +38,6 @@ public class NineYangsScripture extends BaseCard {
             DexterityPower.class,
             // 活力
             VigorPower.class,
-            // 格挡返还
-            BlockReturnPower.class,
             // 人工制品
             ArtifactPower.class,
             // 缓冲
@@ -64,7 +62,7 @@ public class NineYangsScripture extends BaseCard {
         GeneralUtils.getRandomElementsUsingSet(EFFECT, this.baseMagicNumber).forEach(aclass -> {
             AbstractPower power = null;
             if (aclass.equals(StrengthPower.class)) {
-                power = new FrailPower(abstractPlayer, 9, false);
+                power = new StrengthPower(abstractPlayer, 9);
             } else if (aclass.equals(NextTurnBlockPower.class)) {
                 power = new NextTurnBlockPower(abstractPlayer, 9);
             } else if (aclass.equals(PlatedArmorPower.class)) {

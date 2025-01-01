@@ -31,7 +31,7 @@ public class EighteenDragonSubduingPalm18 extends AbstractEighteenDragonSubduing
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    protected void runPlam(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         if (this.upgraded) {
             this.exhaust = false;
             setMagic(this.baseMagicNumber - 1, 0);
@@ -39,12 +39,6 @@ public class EighteenDragonSubduingPalm18 extends AbstractEighteenDragonSubduing
         if (this.baseMagicNumber == 0) {
             this.exhaust = true;
         }
-        super.use(p, m);
-        this.runPlam(p, m);
-    }
-
-    @Override
-    protected void runPlam(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, damage, DamageInfo.DamageType.NORMAL),
                 AbstractGameAction.AttackEffect.SLASH_VERTICAL));
 

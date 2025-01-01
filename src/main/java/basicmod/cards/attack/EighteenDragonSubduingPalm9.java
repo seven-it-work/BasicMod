@@ -24,8 +24,6 @@ public class EighteenDragonSubduingPalm9 extends AbstractEighteenDragonSubduingP
         super(ID, info, 9);
         setDamage(DAMAGE, 1);
         setBlock(BLOCK, 1);
-        this.exhaust = true;
-        this.isRunPrePalm = true;
     }
 
     @Override

@@ -25,8 +25,6 @@ public class EighteenDragonSubduingPalm12 extends AbstractEighteenDragonSubduing
         super(ID, info, 12);
         setDamage(DAMAGE, 1);
         setMagic(BASE_MAGIC_NUMBER,1);
-        this.exhaust = true;
-        this.isRunPrePalm = true;
     }
 
     @Override

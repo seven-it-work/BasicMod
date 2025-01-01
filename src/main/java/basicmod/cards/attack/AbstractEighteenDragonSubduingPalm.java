@@ -18,6 +18,7 @@ public abstract class AbstractEighteenDragonSubduingPalm extends BaseCard {
     public AbstractEighteenDragonSubduingPalm(String ID, CardStats info, int index) {
         super(ID, info);
         this.index = index;
+        this.exhaust = true;
     }
 
     private static void runPrePlam(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster,

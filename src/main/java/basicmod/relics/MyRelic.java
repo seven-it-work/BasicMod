@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 
 import basicmod.BasicMod;
@@ -14,6 +15,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MyRelic extends BaseRelic implements OnReceivePowerRelic {
     public static final Logger logger = LogManager.getLogger(BaseRelic.class); //Used to output to the console.
@@ -30,28 +35,32 @@ public class MyRelic extends BaseRelic implements OnReceivePowerRelic {
         super(ID, NAME, RARITY, SOUND);
     }
 
-    public static AbstractPower createByAbstractPower(AbstractPower abstractPower, Object... objects) {
+    public static List<AbstractPower> createByAbstractPower(AbstractPower abstractPower, AbstractMonster abstractMonster, int count) {
         Class<? extends AbstractPower> aClass = abstractPower.getClass();
+        ArrayList<AbstractPower> result = new ArrayList<>();
         if (FrailPower.class.equals(aClass)) {
-            return new FrailPower((AbstractCreature) objects[0], (int) objects[1], false);
+            result.add(new FrailPower(abstractMonster, count, false));
         }
         if (VulnerablePower.class.equals(aClass)) {
-            return new VulnerablePower((AbstractCreature) objects[0], (int) objects[1], false);
+            result.add(new VulnerablePower(abstractMonster, count, false));
         }
         if (WeakPower.class.equals(aClass)) {
-            return new WeakPower((AbstractCreature) objects[0], (int) objects[1], false);
+            result.add(new WeakPower(abstractMonster, count, false));
         }
         if (StrengthPower.class.equals(aClass)) {
-            return new GainStrengthPower((AbstractCreature) objects[0], (int) objects[1]);
+            int tempCount = Math.abs(count);
+            result.add(new GainStrengthPower(abstractMonster, tempCount));
+            result.add(new StrengthPower(abstractMonster, -tempCount));
         }
-        try {
-            Constructor<? extends AbstractPower> constructor = aClass.getConstructor(AbstractCreature.class, int.class);
-            return constructor.newInstance(objects);
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
-                 IllegalAccessException e) {
-            logger.error("暂时不支持这个负面影响：{}", aClass.getName());
-            throw new RuntimeException(e);
-        }
+        return result;
+//        try {
+//            Constructor<? extends AbstractPower> constructor = aClass.getConstructor(AbstractCreature.class, int.class);
+//            return constructor.newInstance(objects);
+//        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+//                 IllegalAccessException e) {
+//            logger.error("暂时不支持这个负面影响：{}", aClass.getName());
+//            throw new RuntimeException(e);
+//        }
     }
 
     public String getUpdatedDescription() {
@@ -65,14 +74,10 @@ public class MyRelic extends BaseRelic implements OnReceivePowerRelic {
     public boolean onReceivePower(AbstractPower abstractPower, AbstractCreature abstractCreature) {
         // 如果是负面影响，则给所有敌人来相同的负面影响
         if (abstractPower.type == AbstractPower.PowerType.DEBUFF) {
-            try {
-                AbstractPlayer p = AbstractDungeon.player;
-                AbstractDungeon.getMonsters().monsters.forEach(m -> {
-                    addToBot(new ApplyPowerAction(m, p, createByAbstractPower(abstractPower, m, abstractPower.amount)));
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            AbstractPlayer p = AbstractDungeon.player;
+            AbstractDungeon.getMonsters().monsters
+                    .forEach(m -> createByAbstractPower(abstractPower, m, abstractPower.amount)
+                            .forEach(temp -> addToBot(new ApplyPowerAction(m, p, temp))));
         }
         return true;
     }
