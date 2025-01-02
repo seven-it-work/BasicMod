@@ -1,8 +1,20 @@
 {
-  "${modID}:PowerID": {
-    "NAME": "Ultimate Power",
+  "${modID}:InfuriatedPower": {
+    "NAME": "真气",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "这是你的真气 ，真气可以执行更多武学。"
+    ]
+  },
+  "${modID}:YunQiPower": {
+    "NAME": "运气",
+    "DESCRIPTIONS": [
+      "回合结束时，运气调养获得${amount}点#y真气值"
+    ]
+  },
+  "${modID}:SuoGuPower": {
+    "NAME": "缩骨",
+    "DESCRIPTIONS": [
+      "当受到 #y攻击 伤害时，缩骨并获得${amount}点 #y格挡 。减少1层缩骨。"
     ]
   }
 }
