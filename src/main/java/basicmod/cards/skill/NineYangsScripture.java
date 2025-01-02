@@ -1,24 +1,28 @@
 package basicmod.cards.skill;
 
-import basicmod.cards.BaseCard;
-import basicmod.cards.attack.EighteenDragonSubduingPalm1;
-import basicmod.util.CardStats;
-import basicmod.util.GeneralUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.DarkShackles;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
+import com.megacrit.cardcrawl.powers.BufferPower;
+import com.megacrit.cardcrawl.powers.ConservePower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.DoubleDamagePower;
+import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 import com.megacrit.cardcrawl.powers.watcher.FreeAttackPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
+import basicmod.cards.BaseCard;
+import basicmod.util.CardStats;
+import basicmod.util.GeneralUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class NineYangsScripture extends BaseCard {
 
@@ -91,7 +95,6 @@ public class NineYangsScripture extends BaseCard {
             }
         });
     }
-
 
     @Override
     public AbstractCard makeCopy() {
