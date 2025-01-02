@@ -1,12 +1,16 @@
 package basicmod;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basicmod.cards.BaseCard;
 import basicmod.cards.attack.EighteenDragonSubduingPalmConstant;
+import basicmod.cards.skill.BiQiMiJue;
 import basicmod.cards.skill.NineYangsScripture;
+import basicmod.relics.BaseRelic;
 import basicmod.relics.MyRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
@@ -34,6 +38,8 @@ import java.util.*;
 
 @SpireInitializer
 public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber, basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber, basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber {
+    private static final String KEY_PREFIX="jywx";
+
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
 
@@ -147,7 +153,7 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
     }
 
     private void registerKeyword(KeywordInfo info) {
-        BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
+        BaseMod.addKeyword(KEY_PREFIX, info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
         if (!info.ID.isEmpty()) {
             keywords.put(info.ID, info);
         }
@@ -229,8 +235,10 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
 
     @Override
     public void receiveEditCards() {
-        EighteenDragonSubduingPalmConstant.initAbstractEighteenDragonSubduingPalm();
-        BaseMod.addCard(new NineYangsScripture());
+        new AutoAdd(modID)
+            .packageFilter(BaseCard.class)
+            .setDefaultSeen(true)
+            .cards();
     }
 
     @Override
@@ -240,8 +248,10 @@ public class BasicMod implements basemod.interfaces.EditStringsSubscriber, basem
 
     @Override
     public void receiveEditRelics() {
-        logger.info("初始化遗物");
-        BaseMod.addRelic(new MyRelic(), RelicType.SHARED);
+        new AutoAdd(modID)
+            .packageFilter(BaseRelic.class)
+            .setDefaultSeen(true)
+            .cards();
     }
 
     @Override
