@@ -1,23 +1,23 @@
 [
   {
-    "PROPER_NAME": "This is displayed in the tooltip.",
+    "PROPER_NAME": "真气",
     "NAMES": [
-      "these",
-      "are",
-      "detected",
-      "in",
-      "the",
-      "text"
+      "真气"
     ],
-    "DESCRIPTION": "This is displayed in the tooltip. Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
+    "DESCRIPTION": "武学修炼者必备良品。"
   },
   {
-    "PROPER_NAME": "Multiword Keyword",
+    "PROPER_NAME": "运气",
     "NAMES": [
-      "multiword keyword",
-      "multiword_keyword",
-      "multiword_keywords"
+      "运气"
     ],
-    "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+    "DESCRIPTION": "回合结束时，运气调养获得对应层数的 #y真气 值。"
+  },
+  {
+    "PROPER_NAME": "缩骨",
+    "NAMES": [
+      "缩骨"
+    ],
+    "DESCRIPTION": "当受到 #y攻击 伤害时，缩骨并获得相同点 #y格挡 。减少1层。"
   }
 ]
