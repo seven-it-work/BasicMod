@@ -100,5 +100,9 @@
   "${modID}:ShouJinSuoGuFa": {
     "NAME": "收筋缩骨法",
     "DESCRIPTION": "省流：消耗2点 jywx:真气 ，获得 !M! x3层 jywx:缩骨 ，如果 jywx:真气 不足，获得 !M! 层 jywx:缩骨。练至精深处可将身子缩成极小一团，可快速地撞开多名的敌人脱困"
+  },
+  "${modID}:YiHunDaFa": {
+    "NAME": "移魂大法",
+    "DESCRIPTION": "省流：消耗1点 jywx:真气 给予目标 !M! 层 jywx:失魂 。为摄心术的一种，实质有如现代的催眠。"
   }
 }
