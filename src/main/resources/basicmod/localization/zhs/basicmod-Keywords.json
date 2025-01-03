@@ -1,30 +1,26 @@
-[
-  {
-    "PROPER_NAME": "真气",
-    "NAMES": [
-      "真气"
-    ],
-    "DESCRIPTION": "武学修炼者必备良品。"
+{
+  "${modID}:InfuriatedPower": {
+    "NAME": "真气",
+    "DESCRIPTIONS": [
+      "这是你的真气 ，真气可以执行更多武学。"
+    ]
   },
-  {
-    "PROPER_NAME": "运气",
-    "NAMES": [
-      "运气"
-    ],
-    "DESCRIPTION": "回合结束时，运气调养获得对应层数的 #y真气 值。"
+  "${modID}:YunQiPower": {
+    "NAME": "运气",
+    "DESCRIPTIONS": [
+      "回合结束时，运气调养获得${amount}点#y真气值"
+    ]
   },
-  {
-    "PROPER_NAME": "缩骨",
-    "NAMES": [
-      "缩骨"
-    ],
-    "DESCRIPTION": "当受到 #y攻击 伤害时，缩骨并获得相同点 #y格挡 。减少1层。"
+  "${modID}:SuoGuPower": {
+    "NAME": "缩骨",
+    "DESCRIPTIONS": [
+      "当受到 #y攻击 伤害时，缩骨并获得${amount}点 #y格挡 。回合结束是减少1层。"
+    ]
   },
-  {
-    "PROPER_NAME": "失魂",
-    "NAMES": [
-      "失魂"
-    ],
-    "DESCRIPTION": "受失魂影响的人，自己攻击时将随机攻击自己的敌人（包括自己）。"
+  "${modID}:ShiHunPower": {
+    "NAME": "失魂",
+    "DESCRIPTIONS": [
+      "受失魂影响的人，自己攻击时将随机攻击自己的敌人（包括自己）。回合结束是减少1层。"
+    ]
   }
-]
+}
