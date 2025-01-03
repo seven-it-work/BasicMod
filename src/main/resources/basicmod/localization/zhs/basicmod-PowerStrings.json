@@ -14,7 +14,13 @@
   "${modID}:SuoGuPower": {
     "NAME": "缩骨",
     "DESCRIPTIONS": [
-      "当受到 #y攻击 伤害时，缩骨并获得${amount}点 #y格挡 。减少1层缩骨。"
+      "当受到 #y攻击 伤害时，缩骨并获得${amount}点 #y格挡 。回合结束是减少1层。"
+    ]
+  },
+  "${modID}:ShiHunPower": {
+    "NAME": "失魂",
+    "DESCRIPTIONS": [
+      "受失魂影响的人，自己攻击时将随机攻击自己的敌人（包括自己）。回合结束是减少1层。"
     ]
   }
 }
