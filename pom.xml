@@ -193,7 +193,8 @@
                                 <!--This puts a copy of your mod's jar file into the SlayTheSpire mods folder so it will be loaded.-->
                                 <!--On mac, it will be copied to another location. See further below.-->
                                 <copy file="target/${project.artifactId}-jar-with-dependencies.jar"
-                                      tofile="D:/github/SlayTheSpire/mods/${project.artifactId}.jar"/>
+                                      tofile="${steam.path}/common/SlayTheSpire/mods/${project.artifactId}.jar"/>
+<!--                                      tofile="D:/github/SlayTheSpire/mods/${project.artifactId}.jar"/>-->
                             </target>
                         </configuration>
                         <goals>
