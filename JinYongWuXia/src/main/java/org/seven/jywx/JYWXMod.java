@@ -176,7 +176,7 @@ public class JYWXMod implements basemod.interfaces.EditStringsSubscriber, basemo
      * Checks the expected resources path based on the package name.
      */
     private static String checkResourcesPath() {
-        String name = JYWXMod.class.getName(); //getPackage can be iffy with patching, so class name is used instead.
+        String name = JYWXMod.class.getSimpleName(); //getPackage can be iffy with patching, so class name is used instead.
         int separator = name.indexOf('.');
         if (separator > 0)
             name = name.substring(0, separator);
