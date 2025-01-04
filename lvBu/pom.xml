@@ -10,13 +10,153 @@
     </parent>
 
 
-    <groupId>org.seven</groupId>
-    <artifactId>lvBu</artifactId>
-
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <modID>lvbumod</modID>
+        <author>XYN</author>
     </properties>
 
+    <groupId>org.seven</groupId>
+    <artifactId>${modID}</artifactId>
+    <name>金庸武侠</name>
+    <version>0.0.0</version>
+    <description>
+        根据金庸中武学以及人物进行改变。
+    </description>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.github.sylvainlaurent.maven</groupId>
+                <artifactId>yaml-json-validator-maven-plugin</artifactId>
+                <version>1.0.4</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <configuration>
+                            <validationSets>
+                                <validationSet>
+                                    <includes>
+                                        <include>src/main/resources/**/*.json</include>
+                                    </includes>
+                                </validationSet>
+                            </validationSets>
+                            <allowEmptyFiles>true</allowEmptyFiles>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.psd</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                    <delimiters>
+                        <delimiter>${*}</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>description</id>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <target>
+                                <property name="tempDescription" value="${project.description}"/>
+                                <loadresource property="filteredDescription">
+                                    <propertyresource name="tempDescription"/>
+                                    <filterchain>
+                                        <tokenfilter>
+                                            <filetokenizer/>
+                                            <replaceregex pattern="(\s*\n\s*)" replace="\\\\n" flags="g"/>
+                                            <replaceregex pattern='((\\\\)*)(\\?")' replace='\1\\\\"' flags="g"/>
+                                        </tokenfilter>
+                                    </filterchain>
+                                </loadresource>
+
+                                <!--suppress UnresolvedMavenProperty -->
+                                <replace file="target/classes/ModTheSpire.json" value="${filteredDescription}">
+                                    <replacetoken>!(project.description)</replacetoken>
+                                </replace>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/${project.artifactId}-jar-with-dependencies.jar"
+                                      tofile="${game.path}/mods/${project.artifactId}.jar"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes> <!-- These files won't not be filtered. -->
+                    <exclude>ModTheSpire.json</exclude>
+                    <exclude>**/*.json</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes> <!-- These files will be filtered. -->
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 </project>

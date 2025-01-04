@@ -1,0 +1,70 @@
+{
+  "lvbumod:GetAngerFromDiscard": {
+    "TEXT": [
+      "选择一张牌放入你抽牌堆的底端。",
+      "选择 ",
+      " 张牌放入你抽牌堆的底端。（后选择的牌会处于抽牌堆底部）"
+    ]
+  },
+  "DrawPileViewScreen": {
+    "TEXT": [
+      "每回合开始时将从这里抽牌。（红色为积怒牌）",
+      "（这里显示的卡牌按照稀有度排列）",
+      "返回",
+      "抽牌堆"
+    ]
+  },
+  "lvbumod:GetAngerFromHand": {
+    "TEXT": [
+      "积怒",
+      "积怒 （后选择的牌会处于抽牌堆底部）"
+    ]
+  },
+  "lvbumod:FvkAction": {
+    "TEXT": [
+      "选择一张牌直接打出。",
+      "选择 ",
+      " 张牌依次直接打出。"
+    ]
+  },
+  "lvbumod:ReSkin": {
+    "TEXT": [
+      "皮肤",
+      "原版"
+    ]
+  },
+  "lvbumod:PortraitAnimation": {
+    "TEXT": [
+      "立绘类型"
+    ]
+  },
+  "lvbumod:PortraitAnimationType": {
+    "TEXT": [
+      "静态",
+      "动态（低粒子）",
+      "动态"
+    ]
+  },
+  "lvbumod:BetaArtUnlockEffect": {
+    "TEXT": [
+      "已解锁皮肤：百战金甲！"
+    ]
+  },
+  "lvbumod:LvbuSkinGold": {
+    "TEXT": [
+      "百战金甲"
+    ],
+    "EXTRA_TEXT": [
+      "三国最强武将。 NL 曾经败亡于东汉末年的乱世，现在，他终于有机会可以卷土重来。"
+    ]
+  },
+  "lvbumod:LvbuSkinOriginal": {
+    "TEXT": [
+      "原版"
+    ],
+    "EXTRA_TEXT": [
+      "三国最强武将。 NL 曾经败亡于东汉末年的乱世，现在，他终于有机会可以卷土重来。",
+      "三国最强武将。曾经败亡于东汉末年的乱世，现在，他终于有机会可以卷土重来。 NL #y（在进阶20难度下击败腐化之心且拥有赤兔时，可解锁全新皮肤！） "
+    ]
+  }
+}

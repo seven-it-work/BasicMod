@@ -1,0 +1,366 @@
+{
+  "lvbumod:Strike_lvbu": {
+    "NAME": "Only Simplified Chinese is supported",
+    "DESCRIPTION": "Only Simplified Chinese is supported",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 造成 !D! 点伤害。"
+  },
+  "lvbumod:Defend_lvbu": {
+    "NAME": "Only Simplified Chinese is supported",
+    "DESCRIPTION": "Only Simplified Chinese is supported"
+  },
+  "lvbumod:BaiWeiYiFu": {
+    "NAME": "Only Simplified Chinese is supported",
+    "DESCRIPTION": "Only Simplified Chinese is supported",
+    "UPGRADE_DESCRIPTION": "如果没有 lvbumod:义父 ，将目标敌人拜为 lvbumod:义父 。 NL 随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:QiNengJiuJuRenXia": {
+    "NAME": "岂能久居人下！",
+    "DESCRIPTION": " lvbumod:背叛 。 NL 造成 !D! 点伤害，额外造成 lvbumod:恨意 点数1.5倍的伤害。"
+  },
+  "lvbumod:FeiJiangXiaoTian": {
+    "NAME": "飞将啸天",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL lvbumod:泄愤 。 NL  消耗 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL lvbumod:泄愤 。"
+  },
+  "lvbumod:JBStrike": {
+    "NAME": "戟把打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 有 lvbumod:义父 时 lvbumod:积怒 !M! 张手牌。"
+  },
+  "lvbumod:ShunShiZhan": {
+    "NAME": "顺势斩",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 敌人的数量大于1时，对最远敌人的伤害翻倍。"
+  },
+  "lvbumod:DuoXuZhou": {
+    "NAME": "夺徐州",
+    "DESCRIPTION": "获得 !M! 层 lvbumod:鏖战 。 NL 在 lvbumod:无双 回合中打出时， NL 不获得 lvbumod:鏖战 ，获得 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 lvbumod:鏖战 。 NL 在 lvbumod:无双 回合中打出时， NL 不获得 lvbumod:鏖战 ，获得 [E] [E] [E] 。"
+  },
+  "lvbumod:WuZhiHuaShen": {
+    "NAME": "武之化身",
+    "DESCRIPTION": "打出 lvbumod:三英 牌并触发 lvbumod:三英 效果时， NL 获得 !M! 层 lvbumod:鏖战 。"
+  },
+  "lvbumod:TianCiYinJie": {
+    "NAME": "天赐阴劫",
+    "DESCRIPTION": "给予 lvbumod:恨意 时， NL 额外给予 !M! 层。"
+  },
+  "lvbumod:ShenWei": {
+    "NAME": "神威",
+    "DESCRIPTION": " lvbumod:泄愤 时，抽 !M! 张牌。 NL 如果在 lvbumod:无双 回合中，再抽 !M! 张牌。"
+  },
+  "lvbumod:ZhenSheJi": {
+    "NAME": "震慑戟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有1名敌人，随机 lvbumod:积怒 1张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:SeYu": {
+    "NAME": "色欲",
+    "DESCRIPTION": " lvbumod:泄愤 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL lvbumod:泄愤 。 NL 消耗 。"
+  },
+  "lvbumod:ShaMieJi": {
+    "NAME": "杀灭戟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 目标 爪牙 的生命值变为0。"
+  },
+  "lvbumod:WuMingHuo": {
+    "NAME": "无名火",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 积怒 !lvbudmg! 张手牌。"
+  },
+  "lvbumod:TouBen": {
+    "NAME": "投奔",
+    "DESCRIPTION": "将目标敌人拜为 lvbumod:义父 。 NL 获得 !B! 点 格挡 。 NL 增加一名敌人：虱虫。"
+  },
+  "lvbumod:FangTianHuaJi": {
+    "NAME": "方天画戟",
+    "DESCRIPTION": "名字带有戟的攻击牌在打出时给予目标敌人 !M! 层 易伤 。"
+  },
+  "lvbumod:LangZiYeXin": {
+    "NAME": "狼子野心",
+    "DESCRIPTION": " 虚无 。 NL 抽 !M! 张牌。 NL 手牌已满后每多抽1张牌， lvbumod:积怒 !lvbudmg! 张手牌。 NL 消耗 。"
+  },
+  "lvbumod:ChenGong": {
+    "NAME": "陈宫",
+    "DESCRIPTION": " lvbumod:积怒 抽牌堆的所有牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":" lvbumod:积怒 抽牌堆和弃牌堆中所有的非攻击牌。  NL 消耗 。"
+  },
+  "lvbumod:TiTianXingDao": {
+    "NAME": "替天行道！",
+    "DESCRIPTION": " lvbumod:背叛 。 NL 造成 !D! 点伤害， NL 额外造成 lvbumod:恨意 点数 !M! 倍的伤害。"
+  },
+  "lvbumod:ZhanJiLiPi": {
+    "NAME": "战戟立劈",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有一张名字带有戟的攻击牌，伤害额外增加 !M! 点。"
+  },
+  "lvbumod:GaoShun": {
+    "NAME": "高顺:陷阵营",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在本场战斗中， NL 所有 *高顺:陷阵营 只能以同一名敌人作为目标。",
+    "EXTENDED_DESCRIPTION": [
+      "我不能选择其他目标。"
+    ]
+  },
+  "lvbumod:JueDou": {
+    "NAME": "决斗",
+    "DESCRIPTION": "造成 !D! 点伤害。 如果这张牌造成的伤害不高于目标的意图伤害，获得 !B! 点 格挡 。"
+  },
+  "lvbumod:ZhangLiao": {
+    "NAME": "张辽",
+    "DESCRIPTION": "对最远敌人造成 !D! 点伤害。 NL 这张牌在你生命值低于一半时不能从手牌中打出。"
+  },
+  "lvbumod:GreenHat": {
+    "NAME": "绿布",
+    "DESCRIPTION": "选择抽牌堆的 !lvbudmg! 张 lvbumod:背叛 牌加入手牌。 NL 随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。",
+    "UPGRADE_DESCRIPTION": "选择抽牌堆或弃牌堆的 !lvbudmg! 张 lvbumod:背叛 牌加入手牌。 NL 随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:ShanZhanWuQian": {
+    "NAME": "善战无前",
+    "DESCRIPTION": "在你的回合开始时，获得 [E] 。 NL 进入 lvbumod:无双 回合时 保留 所有手牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 所有攻击牌附加 lvbumod:三英 效果：获得 !M! 点格挡。 NL 如果在 lvbumod:无双 回合中，多获得 !M! 点格挡。"
+  },
+  "lvbumod:WuShuangNuJi": {
+    "NAME": "无双怒戟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在 lvbumod:无双 回合中，每有一张牌被 lvbumod:积怒 ，伤害提升 !M! 点。 在 lvbumod:无双 回合开始时加入手牌。"
+  },
+  "lvbumod:HengSaoQianJun": {
+    "NAME": "横扫千军",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 在 lvbumod:无双 回合被 lvbumod:泄愤 打出时，伤害永久增加 !M! 点。 消耗 。"
+  },
+  "lvbumod:HuLaoGuan": {
+    "NAME": "虎牢关",
+    "DESCRIPTION": " 虚无 。 NL 敌人数量不足3时，视为有3名敌人。 NL 在你的回合开始时， NL 获得 !M! 层 lvbumod:鏖战 。",
+    "UPGRADE_DESCRIPTION": "敌人数量不足3时，视为有3名敌人。 NL 在你的回合开始时， NL 获得 !M! 层 lvbumod:鏖战 。"
+  },
+  "lvbumod:FuXiuErQu": {
+    "NAME": "拂袖而去",
+    "DESCRIPTION": " lvbumod:无双 回合结束时， NL 额外打出一次最后打出的牌。",
+    "UPGRADE_DESCRIPTION": "lvbumod:无双 回合结束时， NL 额外打出一次最后打出的牌。"
+  },
+  "lvbumod:DeprecatedZhaoJia": {
+    "NAME": "招架",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL lvbumod:无谋 ：获得 !B! 点 格挡 。"
+  },
+  "lvbumod:WuShuangTuCiJi": {
+    "NAME": "无双突刺戟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 在 lvbumod:无双 回合中打出时， NL 抽 !M! 张牌。"
+  },
+  "lvbumod:MaShu": {
+    "NAME": "马术",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 下次进入 lvbumod:无双 回合时， NL 额外获得 [E] 。"
+  },
+  "lvbumod:YiQiDangXian": {
+    "NAME": "一骑当先",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每有1名敌人，获得 !M! 层 lvbumod:鏖战 。"
+  },
+  "lvbumod:ThrowJi": {
+    "NAME": "投掷重戟",
+    "DESCRIPTION": "对最远敌人造成 !D! 点伤害。被 lvbumod:泄愤 打出时， NL 获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "对最远敌人造成 !D! 点伤害。被 lvbumod:泄愤 打出时， NL 获得 [E] [E] 。"
+  },
+  "lvbumod:LiZhenQianKun": {
+    "NAME": "力震乾坤",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本局游戏这张牌的耗能减1。 NL 消耗 。"
+  },
+  "lvbumod:Retreat": {
+    "NAME": "撤退",
+    "DESCRIPTION": "抽 !lvbudmg! 张牌。 NL 失去 !M! 层 lvbumod:鏖战 ， NL lvbumod:鏖战 不足时不能抽牌。"
+  },
+  "lvbumod:GuanWaiZhuHou": {
+    "NAME": "关外诸侯",
+    "DESCRIPTION": "计算敌人数量时， NL 额外增加 !M! 。"
+  },
+  "lvbumod:WeiFengMingZhu": {
+    "NAME": "未逢明主",
+    "DESCRIPTION": " 固有 。 NL 在你的回合结束时， NL 如果没有 lvbumod:义父 ， NL 将 !M! 名随机敌人拜为 lvbumod:义父 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 在你的回合结束时， NL 如果没有 lvbumod:义父 ， NL 将 !M! 名随机敌人拜为 lvbumod:义父 。"
+  },
+  "lvbumod:YuanMen": {
+    "NAME": "辕门",
+    "DESCRIPTION": "增加一个敌人： lvbumod:手戟 。 NL 消耗 。"
+  },
+  "lvbumod:DeprecatedWuMouTuXi": {
+    "NAME": "无谋突袭",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL lvbumod:无谋 ：再造成两次。"
+  },
+  "lvbumod:HuJia": {
+    "NAME": "护驾",
+    "DESCRIPTION": "如果有非 lvbumod:义父 敌人的意图是攻击，给予所有 lvbumod:义父 !M! 层 lvbumod:恨意 !lvbudmg! 次。"
+  },
+  "lvbumod:WangYunMeiRenJi": {
+    "NAME": "王允:美人计",
+    "DESCRIPTION": " lvbumod:泄愤 。 NL 下个回合，获得等同于被 lvbumod:泄愤 牌耗能的 [E] 。",
+    "UPGRADE_DESCRIPTION": " lvbumod:泄愤 。 NL 获得等同于被 lvbumod:泄愤 牌耗能+1的 [E] 。"
+  },
+  "lvbumod:QuWoBingRen": {
+    "NAME": "取我兵刃！",
+    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL 增加一张耗能不低于 !M! 的随机攻击牌并将其 lvbumod:积怒 。 NL 消耗 。"
+  },
+  "lvbumod:JieJiu": {
+    "NAME": "戒酒！",
+    "DESCRIPTION": " lvbumod:泄愤 。 NL lvbumod:积怒 !M! 张手牌。 NL 清除自身的 虚弱 状态。",
+    "UPGRADE_DESCRIPTION": " lvbumod:泄愤 。 NL lvbumod:积怒 !M! 张手牌。 NL 清除自身的 虚弱 和 易伤 状态。"
+  },
+  "lvbumod:XiaoLiCangDao": {
+    "NAME": "笑里藏刀",
+    "DESCRIPTION": "所有 lvbumod:义父 回复 !lvbudmg! 点 NL 生命，然后获得 !M! 层 lvbumod:恨意 。"
+  },
+  "lvbumod:FengZhiTaoZei": {
+    "NAME": "奉旨讨贼！",
+    "DESCRIPTION": " lvbumod:背叛 。 NL 对所有敌人造成 !D! 点伤害。额外造成 lvbumod:恨意 最高 lvbumod:义父 的 lvbumod:恨意 点数 NL 1.5倍的伤害。",
+    "UPGRADE_DESCRIPTION": " lvbumod:背叛 。 NL 对所有敌人造成 !D! 点伤害。额外造成 lvbumod:恨意 最高 lvbumod:义父 的 lvbumod:恨意 点数 !M! 倍的伤害。"
+  },
+  "lvbumod:XiuLuoFormOld": {
+    "NAME": "修罗形态",
+    "DESCRIPTION": " 虚无 。 NL 所有攻击牌附加 lvbumod:无谋 效果：一张随机手牌的耗能在打出前变为0。",
+    "UPGRADE_DESCRIPTION": "所有攻击牌附加 lvbumod:无谋 效果：一张随机手牌的耗能在打出前变为0。"
+  },
+  "lvbumod:XiuLuoForm": {
+    "NAME": "修罗形态",
+    "DESCRIPTION": " 虚无 。 NL 每当你获得或失去 lvbumod:鏖战 时， NL 本回合内获得等量 力量 。",
+    "UPGRADE_DESCRIPTION": "每当你获得或失去 lvbumod:鏖战 时， NL 本回合内获得等量 力量 。"
+  },
+  "lvbumod:XuanZhuanFeiJi": {
+    "NAME": "旋转飞戟",
+    "DESCRIPTION": "随机造成 !D! 点伤害。 NL 被 lvbumod:泄愤 打出时，这张牌的耗能在本场战斗中减少 !M! ，否则增加 !M! 。"
+  },
+  "lvbumod:ManYueGong": {
+    "NAME": "满月弓",
+    "DESCRIPTION": "对最远敌人造成 !D! 点伤害。 NL 每有一名其他敌人，伤害增加1倍。"
+  },
+  "lvbumod:LengQuan": {
+    "NAME": "冷拳",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有1名敌人，给予 !M! 层 虚弱 。"
+  },
+  "lvbumod:ShiFangHengSao": {
+    "NAME": "十方横扫",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 抽 !M! 张牌。"
+  },
+  "lvbumod:ChuanHouJi": {
+    "NAME": "穿喉戟",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标为 lvbumod:义父 ，给予 !M! 点 lvbumod:恨意 。"
+  },
+  "lvbumod:BoDangFeiJian": {
+    "NAME": "拨挡飞箭",
+    "DESCRIPTION": " 随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。 NL 所有敌人在本回合内失去 !lvbudmg! 点 力量 。"
+  },
+  "lvbumod:ChangHuZi": {
+    "NAME": "红脸贼",
+    "DESCRIPTION": "每有1名敌人， NL 对所有敌人造成 !D! 点伤害。 "
+  },
+  "lvbumod:HuanYanZei": {
+    "NAME": "环眼贼",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL  每有1名敌人，抽1张牌。"
+  },
+  "lvbumod:ZhanBaiYuHe": {
+    "NAME": "决斗",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 lvbumod:鏖战 。 NL 这张牌每被打出一次，在本场战斗中 获得 lvbumod:鏖战 的层数增加 !lvbudmg! 。"
+  },
+  "lvbumod:JingZhouCiShi": {
+    "NAME": "荆州刺史",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 增加一个敌人 ： NL 尖刺史莱姆（小）。"
+  },
+  "lvbumod:YiLiPoQiao": {
+    "NAME": "以力破巧",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每有一张牌被 lvbumod:积怒 ， 格挡 提升 !M! 点。"
+  },
+  "lvbumod:KunShouZhiDou": {
+    "NAME": "困兽之斗",
+    "DESCRIPTION": " lvbumod:积怒 手牌中所有非攻击牌，每张获得 !B! 点 格挡 。"
+  },
+  "lvbumod:LiuBei": {
+    "NAME": "刘备:借刀杀人",
+    "DESCRIPTION": " 保留 。 lvbumod:积怒 最多 !M! 张弃牌堆中的牌。 NL 如果没有 lvbumod:义父 ，失去 !lvbudmg! 点生命。 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL lvbumod:积怒 最多 !M! 张弃牌堆中的牌。 NL 如果没有 lvbumod:义父 ，失去2点生命 !lvbudmg! 次。 消耗 。"
+  },
+  "lvbumod:XiDiaoChan": {
+    "NAME": "戏貂蝉",
+    "DESCRIPTION": "获得 !M! 层 虚弱 。 NL lvbumod:泄愤 。"
+  },
+  "lvbumod:DaErZei": {
+    "NAME": "大耳贼",
+    "DESCRIPTION": "每有1名敌人， lvbumod:泄愤 1次。 NL 消耗 。"
+  },
+  "lvbumod:CaiJi": {
+    "NAME": "猜忌",
+    "DESCRIPTION": "抽 !lvbudmg! 张牌。 NL 这张牌被 lvbumod:积怒 时， NL 抽 !M! 张牌。"
+  },
+  "lvbumod:XiYanZhou": {
+    "NAME": "袭兖州",
+    "DESCRIPTION": "获得 !M! 层 lvbumod:鏖战 X次。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 lvbumod:鏖战 X+1次。"
+  },
+  "lvbumod:DongZhuo": {
+    "NAME": "董卓:利诱",
+    "DESCRIPTION": "将目标敌人拜为 lvbumod:义父 。 NL 获得 !M! 金币。 NL 消耗 。"
+  },
+  "lvbumod:CeShenShanJi": {
+    "NAME": "侧身闪戟",
+    "DESCRIPTION": "随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。 NL 获得 !B! 点 格挡 。 NL 有 lvbumod:义父 时额外获得 !B! 点 格挡 。"
+  },
+  "lvbumod:DiaoChan": {
+    "NAME": "貂蝉:离间",
+    "DESCRIPTION": "获得 !M! 层 lvbumod:鏖战 。 NL 将目标敌人拜为 lvbumod:义父 。"
+  },
+  "lvbumod:WangYun": {
+    "NAME": "王允:连环计",
+    "DESCRIPTION": "洗牌时，随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:ZhangYang": {
+    "NAME": "张杨",
+    "DESCRIPTION": "阻止下一次你受到的生命值损伤。 NL 计算敌人数量时，额外增加 !lvbudmg! 。",
+    "UPGRADE_DESCRIPTION": "阻止下 !M! 次你受到的生命值损伤。 NL 计算敌人数量时，额外增加 !lvbudmg! 。"
+
+  },
+  "lvbumod:ZhouXuan": {
+    "NAME": "周旋",
+    "DESCRIPTION": "你每 lvbumod:积怒 1张牌，获得 !M! 点 格挡 。如果在 lvbumod:无双 回合中，再获得一次。"
+  },
+  "lvbumod:ZhanSanYing": {
+    "NAME": "战三英",
+    "DESCRIPTION": "在 lvbumod:无双 回合结束时，每有1名敌人，获得 !M! 点 格挡 。"
+  },
+  "lvbumod:GuiShenTingWei": {
+    "NAME": "鬼神霆威",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 获得 !M! 层 lvbumod:鏖战 。"
+  },
+  "lvbumod:LieDiJi": {
+    "NAME": "裂地戟",
+    "DESCRIPTION": "你每有 !M! [E] ，对当前生命值最高的敌人造成 !D! 点伤害。"
+  },
+  "lvbumod:YiQiJueChen": {
+    "NAME": "一骑绝尘",
+    "DESCRIPTION": "如果本回合内尚未打出过技能牌，抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 如果本回合内尚未打出过技能牌，抽 !M! 张牌。"
+  },
+  "lvbumod:TiTouLaiJian": {
+    "NAME": "提头来见！",
+    "DESCRIPTION": "将目标敌人拜为 lvbumod:义父 。 NL 如果本场战斗 lvbumod:背叛 过 lvbumod:义父 ，获得 !M! 层 lvbumod:鏖战 。 NL 消耗 。"
+  },
+  "lvbumod:ShaShen": {
+    "NAME": "杀神",
+    "DESCRIPTION": " 虚无 。 NL lvbumod:无双 回合中，你的伤害翻倍。",
+    "UPGRADE_DESCRIPTION": " lvbumod:无双 回合中，你的伤害翻倍。"
+  },
+  "lvbumod:FengYiTing": {
+    "NAME": "凤仪亭",
+    "DESCRIPTION": "在你的回合开始时， lvbumod:泄愤 。有 lvbumod:义父 时随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 在你的回合开始时， lvbumod:泄愤 。有 lvbumod:义父 时随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:FanZhi": {
+    "NAME": "反制",
+    "DESCRIPTION": "如果有敌人的意图伤害高于 !M! 点，获得 !B! 点 格挡 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 在你的回合开始时， lvbumod:泄愤 。有 lvbumod:义父 时随机 lvbumod:积怒 !M! 张抽牌堆中耗能最高的牌。"
+  },
+  "lvbumod:beg1": {
+    "NAME": "乞讨",
+    "DESCRIPTION": "作者因为没日没夜制作mod没钱吃饭了，非常需要大家的支持。"
+  },
+  "lvbumod:beg2": {
+    "NAME": "捐赠二维码",
+    "DESCRIPTION": "这个是捐赠二维码。我会发送一份音效特效多媒体扩充包，还有一份攻略（正在制作）。"
+  },
+  "lvbumod:beg3": {
+    "NAME": "晓夫九的Q群",
+    "DESCRIPTION": "这个是我的视频交流群，有关ikun、苏联、吕布mod或者原版尖塔的内容都可以和我聊聊哦"
+  },
+  "lvbumod:beg4": {
+    "NAME": "我的其他mod",
+    "DESCRIPTION": "我的前作品ikun mod和苏联mod。也欢迎大家来体验。"
+  }
+}

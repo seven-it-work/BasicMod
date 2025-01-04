@@ -1,0 +1,76 @@
+{
+    "lvbumod:ChiTu": {
+    "NAME": "赤兔",
+    "FLAVOR": "人中吕布，马中赤兔。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，随机 #y积怒 #b3 张抽牌堆耗能最高的牌。 游戏开始时，获得一张 #y色欲 。",
+      "在每场战斗开始时，随机 #y积怒 #b3 张抽牌堆耗能最高的牌。 游戏开始时，获得一张 #y色欲 。"
+    ]
+  },
+  "lvbumod:ChiTu_sl": {
+    "NAME": "马",
+    "FLAVOR": "在你SL的时候，你的赤兔跑丢了，所以你只能暂时用这个。",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，随机 #y积怒 #b3 张抽牌堆耗能最高的牌。"
+    ]
+  },
+  "lvbumod:WanLiChiTu": {
+    "NAME": "万里赤兔",
+    "FLAVOR": "人中吕布，马中赤兔。",
+    "DESCRIPTIONS": [
+      "在每个回合开始时，随机 #y积怒 #b2 张抽牌堆耗能最高的牌。"
+    ]
+  },
+  "lvbumod:WanLiChiTu_sl": {
+    "NAME": "彩虹小马",
+    "FLAVOR": "虽然你的赤兔在SL的时候跑丢了，但是这匹马还是比较让你满意。",
+    "DESCRIPTIONS": [
+      "在每个回合开始时，随机 #y积怒 #b2 张抽牌堆耗能最高的牌。"
+    ]
+  },
+  "lvbumod:BingQiJia": {
+    "NAME": "兵器架",
+    "FLAVOR": "豹子尾摇穿画戟,雄兵十万脱征衣。",
+    "DESCRIPTIONS": [
+      "你每打出的第 #b3 张名字带有戟的攻击牌时，给予目标 #b",
+      " 层 #y易伤 。"
+    ]
+  },
+  "lvbumod:TongJing": {
+    "NAME": "铜镜",
+    "FLAVOR": "我被酒色所伤，竟如此憔悴！自今日起，戒酒！",
+    "DESCRIPTIONS": [
+      "你最多拥有 #y脆弱 、 #y虚弱 、 #y易伤 中的一种状态。"
+    ]
+  },
+  "lvbumod:XiaoShou": {
+    "NAME": "枭首",
+    "FLAVOR": "关外诸侯，布视之如草芥！愿提虎狼之师，尽斩其首，悬于都门！",
+    "DESCRIPTIONS": [
+      "每场战斗杀死第一名敌人后，计算敌人数量时额外增加 #b2 。"
+    ]
+  },
+  "lvbumod:DianTianDeng": {
+    "NAME": "点天灯",
+    "FLAVOR": "守尸吏燃火置卓脐中，光明达曙，如是积日。",
+    "DESCRIPTIONS": [
+      "如果最后一名敌人是 #y义父 ，而且被 #y背叛 牌杀死，回复 #b",
+      " 点生命。"
+    ]
+  },
+  "lvbumod:XingJunQi": {
+    "NAME": "行军旗",
+    "FLAVOR": "黄旗皂纛从天下。",
+    "DESCRIPTIONS": [
+      "战斗开始时，敌人失去所有 #y力量 、 #y人工制品 、 #y金属化 、 #y多层护甲 。"
+    ]
+  },
+  "lvbumod:JinJiaJinPao": {
+    "NAME": "金甲锦袍",
+    "FLAVOR": "“奉先我儿，我封你为骑督尉中郎将，都亭侯。赐金甲锦袍。”",
+    "DESCRIPTIONS": [
+      "每回合开始获得 [E] 。 #y义父 的 #y恨意 在你的回合开始时减少 #b",
+      " 点。"
+    ]
+  }
+}

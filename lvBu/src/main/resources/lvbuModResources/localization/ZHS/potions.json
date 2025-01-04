@@ -1,0 +1,22 @@
+{
+  "lvbumod:ArrowPotion": {
+    "NAME": "精炼箭镞",
+    "DESCRIPTIONS": [
+      "每有一名敌人，对所有敌人造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "lvbumod:PitchPotion": {
+    "NAME": "桃园浊酒",
+    "DESCRIPTIONS": [
+      "将 #b",
+      " 名敌人拜为 #y义父 。 #y泄愤 。"
+    ]
+  },
+  "lvbumod:AngerPotion": {
+    "NAME": "怒火药水",
+    "DESCRIPTIONS": [
+      " #y积怒 弃牌堆的所有牌。"
+    ]
+  }
+}

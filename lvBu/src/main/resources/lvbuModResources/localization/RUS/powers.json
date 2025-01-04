@@ -1,0 +1,186 @@
+{
+  "lvbumod:DadPower": {
+    "NAME": "义父",
+    "DESCRIPTIONS": [
+      "敌人受到攻击伤害时，将全部伤害转化为 #r恨意 。"
+    ]
+  },
+  "lvbumod:HatePower": {
+    "NAME": "恨意",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，如果 #r恨意 点数超过敌人的当前生命值，立即造成 #r恨意 点数的伤害并清除 #y义父 和 #r恨意 状态。"
+    ]
+  },
+  "lvbumod:FightHardPower": {
+    "NAME": "鏖战",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，如果 #y鏖战 不少于 #b",
+      " 层，则失去 #b",
+      " 层 #y鏖战 并立即进入一个额外的 #y无双 回合。"
+    ]
+  },
+  "lvbumod:MatchlessPower": {
+    "NAME": "无双",
+    "DESCRIPTIONS": [
+      "本回合是 #y无双 回合，回合结束时不会触发 #y鏖战 。"
+    ]
+  },
+  "lvbumod:StupidPower": {
+    "NAME": "无谋",
+    "DESCRIPTIONS": [
+      "本回合尚未打出过技能牌，可以触发 #y无谋 效果。",
+      "本回合已打出过技能牌，不能触发 #y无谋 效果。"
+    ]
+  },
+    "lvbumod:WuZhiHuaShenPower": {
+    "NAME": "武之化身",
+    "DESCRIPTIONS": [
+      "打出 #y三英 牌并触发 #y三英 效果时，获得 #b",
+      "层 #y鏖战 。"
+    ]
+  },
+  "lvbumod:YinJiePower": {
+    "NAME": "阴劫",
+    "DESCRIPTIONS": [
+      "给予 #r恨意 时，额外给予 #b",
+      "层。"
+    ]
+  },
+  "lvbumod:ShenWeiPower": {
+    "NAME": "神威",
+    "DESCRIPTIONS": [
+      "#y泄愤 时，抽 #b",
+      " 张牌。如果在 #y无双 回合中，再抽 #b",
+      " 张牌。"
+    ]
+  },
+  "lvbumod:FangTianHuaJiPower": {
+    "NAME": "方天画戟",
+    "DESCRIPTIONS": [
+      "名字带有戟的攻击牌在打出时给予目标敌人 #b",
+      " 层 #r易伤 。"
+    ]
+  },
+  "lvbumod:ChenGongPower": {
+    "NAME": "陈宫",
+    "DESCRIPTIONS": [
+      "本回合内， #y无谋 效果没有触发条件。"
+    ]
+  },
+  "lvbumod:ShanZhanWuQianPower": {
+    "NAME": "善战无前",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，获得 ",
+      " 。进入 #y无双 回合时保留所有手牌。"
+    ]
+  },
+  "lvbumod:HuLaoGuanPower": {
+    "NAME": "虎牢关",
+    "DESCRIPTIONS": [
+      "计算敌人数量时视为至少有 #b3 名敌人。在你的回合开始时，获得 #b",
+      " 层 #y鏖战 。"
+    ]
+  },
+  "lvbumod:FuXiuErQuPower": {
+    "NAME": "拂袖而去",
+    "DESCRIPTIONS": [
+      " #y无双 回合结束时，额外打出一次最后打出的牌。",
+      " #y无双 回合结束时，额外打出一次最后 #b",
+      " 张打出的牌。"
+    ]
+  },
+  "lvbumod:MaShuPower": {
+    "NAME": "马术",
+    "DESCRIPTIONS": [
+      "下个 #y无双 回合额外获得 ",
+      "。"
+    ]
+  },
+  "lvbumod:GuanWaiZhuHouPower": {
+    "NAME": "草芥",
+    "DESCRIPTIONS": [
+      "计算敌人数量时，额外增加 #b",
+      " 。"
+    ]
+  },
+  "lvbumod:WeiFengMingZhuPower": {
+    "NAME": "未逢明主",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，如果没有 #y义父 ，将 #b",
+      " 名随机敌人拜为 #y义父 。"
+    ]
+  },
+  "lvbumod:JiShangXiaoZhiPower": {
+    "NAME": "戟上小枝",
+    "DESCRIPTIONS": [
+      "这名敌人死亡后，本回合所有角色不会失去生命。"
+      ]
+  },
+  "lvbumod:YuanMenSheJiPower": {
+    "NAME": "辕门射戟",
+    "DESCRIPTIONS": [
+      "本回合内不会失去生命。",
+      "接下来的 #b",
+      " 回合内不会失去生命。"
+    ]
+  },
+  "lvbumod:XiuLuoFormPower": {
+    "NAME": "修罗形态",
+    "DESCRIPTIONS": [
+      "每当你获得或失去 #y鏖战 时，本回合内获得等量 #y力量 。",
+      "每当你获得或失去 #y鏖战 时，本回合内获得 #b",
+      " 倍的 #y力量 。"
+    ]
+  },
+  "lvbumod:WangYunPower": {
+    "NAME": "连环计",
+    "DESCRIPTIONS": [
+      "洗牌时，随机 #y积怒 #b",
+      " 张抽牌堆中耗能最高的牌。"
+    ]
+  },
+  "lvbumod:ZhangYangPower": {
+    "NAME": "张杨",
+    "DESCRIPTIONS": [
+      "当你失去生命时，每有 #b1 名敌人，随机造成 #b",
+      " 点伤害。"
+    ]
+  },
+  "lvbumod:ZhouXuanPower": {
+    "NAME": "周旋",
+    "DESCRIPTIONS": [
+      "你每 #y积怒 #b1 张牌，获得 #b",
+      " 点格挡。如果在 #y无双 回合中，再获得一次。"
+    ]
+  },
+  "lvbumod:ZhanSanYingPower": {
+  "NAME": "战三英",
+  "DESCRIPTIONS": [
+    "在 #y无双 回合结束时，每有1名敌人，获得 #b",
+    " 点格挡。"
+  ]
+},
+  "lvbumod:ShaShenPower": {
+    "NAME": "杀神",
+    "DESCRIPTIONS": [
+      " #y无双 回合中，你的伤害翻倍。",
+      " #y无双 回合中，你的伤害翻 #b",
+      " 倍。"
+    ]
+  },
+  "lvbumod:FengYiTingPower": {
+    "NAME": "凤仪亭",
+    "DESCRIPTIONS": [
+      "在你的回合开始时， #y泄愤 。有 #y义父 时随机 #y积怒 #b",
+      " 张抽牌堆中耗能最高的牌。"
+    ]
+  },
+  "lvbumod:BingQiJiaPower": {
+    "NAME": "临时兵器",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，失去 #b",
+      " 层 #y方天画戟 。"
+    ]
+  }
+}
+
