@@ -9,6 +9,7 @@
     <modules>
         <module>lvBu</module>
         <module>JinYongWuXia</module>
+        <module>decompiled-Downfall</module>
     </modules>
 
     <properties>

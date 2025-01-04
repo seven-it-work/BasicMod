@@ -17,10 +17,10 @@
 
     <groupId>org.seven</groupId>
     <artifactId>${modID}</artifactId>
-    <name>金庸武侠</name>
+    <name>吕布</name>
     <version>0.0.0</version>
     <description>
-        根据金庸中武学以及人物进行改变。
+        这里吕布mod的反编译源码
     </description>
 
     <build>
