@@ -1,0 +1,16 @@
+{
+  "${modID}:类名": {
+    "NAME": "名称",
+    "FLAVOR": "描述1",
+    "DESCRIPTIONS": [
+      "描述"
+    ]
+  },
+  "${modID}:SanLianRelic": {
+    "NAME": "三连",
+    "FLAVOR": "描述1",
+    "DESCRIPTIONS": [
+      "描述"
+    ]
+  }
+}
