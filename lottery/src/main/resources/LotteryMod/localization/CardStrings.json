@@ -1,0 +1,7 @@
+{
+  "${modID}:类名": {
+    "NAME": "卡牌名称",
+    "DESCRIPTION": "卡牌描述",
+    "UPGRADE_DESCRIPTION": "卡牌升级描述"
+  }
+}

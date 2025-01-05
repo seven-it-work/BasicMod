@@ -9,7 +9,8 @@
     <modules>
         <module>lvBu</module>
         <module>JinYongWuXia</module>
-        <module>decompiled-Downfall</module>
+        <module>lottery</module>
+        <module>MyUtils</module>
     </modules>
 
     <properties>

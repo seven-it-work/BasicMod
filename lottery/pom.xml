@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.seven</groupId>
+        <artifactId>modProjects</artifactId>
+        <version>0.0.0</version>
+    </parent>
+
+    <properties>
+        <modID>lottery</modID>
+        <author>sevenyjl</author>
+    </properties>
+
+    <artifactId>${modID}</artifactId>
+    <name>抽奖模拟器</name>
+    <version>0.0.0</version>
+    <description>
+        说明：\n
+        遗物：\n
+        1、三连：三张一样的（等级）可以合成一张升级的卡片，并获得一张三连奖励。如果已经升级将不在合成三连
+        2、必出三连器：当达到20抽时，给一张三连
+        卡片：\n
+        三连奖励：本局对战中：根据三连的稀有度获得对应的遗物（可以重复获得遗物）。 STARTER（BASIC）, COMMON（COMMON）, UNCOMMON（UNCOMMON）, RARE（RARE）, SPECIAL（SPECIAL）,  SHOP（CURSE）;
+
+        普通卡：抽1次BASIC：35%基础卡（BASIC）、35%常见卡（COMMON）、10%不常见卡（UNCOMMON）、10%稀有（RARE）、5%特殊（SPECIAL）、5%诅咒（CURSE）。消耗
+        普通卡：抽5次COMMON：35%基础卡（BASIC）、35%常见卡（COMMON）、10%不常见卡（UNCOMMON）、10%稀有（RARE）、5%特殊（SPECIAL）、5%诅咒（CURSE）。消耗
+        普通卡：抽10次UNCOMMON：35%基础卡（BASIC）、35%常见卡（COMMON）、10%不常见卡（UNCOMMON）、10%稀有（RARE）、5%特殊（SPECIAL）、5%诅咒（CURSE）。消耗
+
+        好运卡：抽1次UNCOMMON：30%基础卡（BASIC）、30%常见卡（COMMON）、15%不常见卡（UNCOMMON）、15%稀有（RARE）、5%特殊（SPECIAL）、5%诅咒（CURSE）。消耗
+        好运卡：抽5次RARE：30%基础卡（BASIC）、30%常见卡（COMMON）、15%不常见卡（UNCOMMON）、15%稀有（RARE）、5%特殊（SPECIAL）、5%诅咒（CURSE）。消耗
+
+        稀有卡：抽1次RARE：20%基础卡（BASIC）、20%常见卡（COMMON）、20%不常见卡（UNCOMMON）、20%稀有（RARE）、10%特殊（SPECIAL）、10%诅咒（CURSE）。消耗
+        稀有卡：抽5次SPECIAL：20%基础卡（BASIC）、20%常见卡（COMMON）、20%不常见卡（UNCOMMON）、20%稀有（RARE）、10%特殊（SPECIAL）、10%诅咒（CURSE）。消耗
+
+        倒霉卡：抽1次COMMON：5%基础卡（BASIC）、5%常见卡（COMMON）、5%不常见卡（UNCOMMON）、5%稀有（RARE）、5%特殊（SPECIAL）、75%诅咒（CURSE）。消耗
+        倒霉卡：抽5次COMMON：5%基础卡（BASIC）、5%常见卡（COMMON）、5%不常见卡（UNCOMMON）、5%稀有（RARE）、5%特殊（SPECIAL）、75%诅咒（CURSE）。消耗
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seven</groupId>
+            <artifactId>MyUtils</artifactId>
+            <version>0.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>com.github.sylvainlaurent.maven</groupId>
+                <artifactId>yaml-json-validator-maven-plugin</artifactId>
+                <version>1.0.4</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <configuration>
+                            <validationSets>
+                                <validationSet>
+                                    <includes>
+                                        <include>src/main/resources/**/*.json</include>
+                                    </includes>
+                                </validationSet>
+                            </validationSets>
+                            <allowEmptyFiles>true</allowEmptyFiles>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.psd</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                    <delimiters>
+                        <delimiter>${*}</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>description</id>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <target>
+                                <property name="tempDescription" value="${project.description}"/>
+                                <loadresource property="filteredDescription">
+                                    <propertyresource name="tempDescription"/>
+                                    <filterchain>
+                                        <tokenfilter>
+                                            <filetokenizer/>
+                                            <replaceregex pattern="(\s*\n\s*)" replace="\\\\n" flags="g"/>
+                                            <replaceregex pattern='((\\\\)*)(\\?")' replace='\1\\\\"' flags="g"/>
+                                        </tokenfilter>
+                                    </filterchain>
+                                </loadresource>
+
+                                <!--suppress UnresolvedMavenProperty -->
+                                <replace file="target/classes/ModTheSpire.json" value="${filteredDescription}">
+                                    <replacetoken>!(project.description)</replacetoken>
+                                </replace>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <copy file="target/${project.artifactId}-jar-with-dependencies.jar"
+                                      tofile="${game.path}/mods/${project.artifactId}.jar"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes> <!-- These files won't not be filtered. -->
+                    <exclude>ModTheSpire.json</exclude>
+                    <exclude>**/*.json</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes> <!-- These files will be filtered. -->
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+</project>
