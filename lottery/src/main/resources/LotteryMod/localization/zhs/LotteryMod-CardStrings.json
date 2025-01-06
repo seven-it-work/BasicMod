@@ -1,7 +1,54 @@
 {
-  "${modID}:类名": {
-    "NAME": "卡牌名称",
-    "DESCRIPTION": "卡牌描述",
-    "UPGRADE_DESCRIPTION": "卡牌升级描述"
+  "${modID}:SanLianReward": {
+    "NAME": "三连奖励",
+    "DESCRIPTION": "本局对战中：根据三连的稀有度获得对应的遗物（可以重复获得遗物）。"
+  },
+  "${modID}:LuckyDraw1": {
+    "NAME": "好运卡",
+    "DESCRIPTION": "抽 !M! 次。30%基础卡、30%常见卡、15%不常见卡、15%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:LuckyDraw5": {
+    "NAME": "好运卡",
+    "DESCRIPTION": "抽 !M! 次。30%基础卡、30%常见卡、15%不常见卡、15%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:LuckyDraw10": {
+    "NAME": "好运卡",
+    "DESCRIPTION": "抽 !M! 次。30%基础卡、30%常见卡、15%不常见卡、15%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:SuperLuckyDraw1": {
+    "NAME": "超级好运卡",
+    "DESCRIPTION": "抽 !M! 次。20%基础卡、20%常见卡、20%不常见卡、20%稀有、10%特殊、10%诅咒。 NL 只能用一次"
+  },
+  "${modID}:SuperLuckyDraw5": {
+    "NAME": "超级好运卡",
+    "DESCRIPTION": "抽 !M! 次。20%基础卡、20%常见卡、20%不常见卡、20%稀有、10%特殊、10%诅咒。 NL 只能用一次"
+  },
+  "${modID}:SuperLuckyDraw10": {
+    "NAME": "超级好运卡",
+    "DESCRIPTION": "抽 !M! 次。20%基础卡、20%常见卡、20%不常见卡、20%稀有、10%特殊、10%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UnluckyDraw1": {
+    "NAME": "倒霉卡",
+    "DESCRIPTION": "抽 !M! 次。5%基础卡、5%常见卡、5%不常见卡、5%稀有、5%特殊、75%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UnluckyDraw5": {
+    "NAME": "倒霉卡",
+    "DESCRIPTION": "抽 !M! 次。5%基础卡、5%常见卡、5%不常见卡、5%稀有、5%特殊、75%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UnluckyDraw10": {
+    "NAME": "倒霉卡",
+    "DESCRIPTION": "抽 !M! 次。5%基础卡、5%常见卡、5%不常见卡、5%稀有、5%特殊、75%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UsuallyDraw1": {
+    "NAME": "普通卡",
+    "DESCRIPTION": "抽 !M! 次。35%基础卡、35%常见卡、10%不常见卡、10%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UsuallyDraw5": {
+    "NAME": "普通卡",
+    "DESCRIPTION": "抽 !M! 次。35%基础卡、35%常见卡、10%不常见卡、10%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:UsuallyDraw10": {
+    "NAME": "普通卡",
+    "DESCRIPTION": "抽 !M! 次。35%基础卡、35%常见卡、10%不常见卡、10%稀有、5%特殊、5%诅咒。 NL 只能用一次"
   }
 }
