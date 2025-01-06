@@ -10,6 +10,7 @@
 1. 修复抽卡又能抽到抽卡卡问题
 2. new NewQueueCardAction来使用卡片存在问题，不知道什么问题，现在应该改为PlayTopCardAction（自定义） 改为了 [PlayCardAction.java](src%2Fmain%2Fjava%2Flottery%2Factions%2FPlayCardAction.java)
 3. 升级卡也能合成，合成后给一个升级三连奖励+
+4. 
 
 # 说明
 
@@ -17,7 +18,7 @@
 
 ### 三连
 
-三张一样的（等级）可以合成一张升级的卡片，并获得一张三连奖励。如果已经升级将不在合成
+手牌上限+,5，三张一样的（等级）可以合成一张升级的卡片，并获得一张三连奖励。如果已经升级将不在合成
 
 ### 必出三连器
 

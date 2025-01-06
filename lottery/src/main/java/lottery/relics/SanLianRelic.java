@@ -22,12 +22,15 @@ public class SanLianRelic extends BaseRelic {
         NOT_IN_SAN_LIAN.add(SanLianReward.ID);
     }
 
+    private int gameHandSize;
+
     public SanLianRelic() {
         super(ID, SanLianRelic.class.getSimpleName(), RelicTier.STARTER, LandingSound.CLINK);
     }
 
     @Override
     public void atBattleStart() {
+        AbstractDungeon.player.gameHandSize += 5;
         super.atBattleStart();
         // 使用抽牌卡3张
         List<String> drawCardIds = Arrays.asList(LuckyDraw1.ID, LuckyDraw5.ID, LuckyDraw10.ID, SuperLuckyDraw1.ID,
@@ -36,7 +39,9 @@ public class SanLianRelic extends BaseRelic {
         for (int i = 0; i < 3; i++) {
             String s = RandomUtil.randomEle(drawCardIds);
             this.addToTop(new PlayCardAction(CardLibrary.getCard(s).makeCopy(), null, true));
+            this.flash();
         }
+        this.gameHandSize = AbstractDungeon.player.gameHandSize;
     }
 
     @Override
@@ -51,6 +56,7 @@ public class SanLianRelic extends BaseRelic {
         AbstractDungeon.topPanel.adjustRelicHbs();
         // 清空list
         THIS_BATTLE_ADD_RELICS.clear();
+        AbstractDungeon.player.gameHandSize = this.gameHandSize;
     }
 
     @Override
@@ -74,46 +80,46 @@ public class SanLianRelic extends BaseRelic {
             return;
         }
         updradedList.stream()
-            .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
-                if (value.size() >= 3) {
-                    changeHand.set(true);
-                    // 添加三连多余的
-                    for (int i = 0; i < value.size() % 3; i++) {
-                        newHand.add(value.get(i));
+                .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
+                    if (value.size() >= 3) {
+                        changeHand.set(true);
+                        // 添加三连多余的
+                        for (int i = 0; i < value.size() % 3; i++) {
+                            newHand.add(value.get(i));
+                        }
+                        // 添加三连奖励
+                        for (int i = 0; i < value.size() / 3; i++) {
+                            AbstractCard abstractCard = value.get(i).makeCopy();
+                            abstractCard.upgrade();
+                            newHand.add(abstractCard);
+                            SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
+                            sanLianReward.upgrade();
+                            newHand.add(sanLianReward);
+                        }
+                    } else {
+                        newHand.addAll(value);
                     }
-                    // 添加三连奖励
-                    for (int i = 0; i < value.size() / 3; i++) {
-                        AbstractCard abstractCard = value.get(i).makeCopy();
-                        abstractCard.upgrade();
-                        newHand.add(abstractCard);
-                        SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
-                        sanLianReward.upgrade();
-                        newHand.add(sanLianReward);
-                    }
-                } else {
-                    newHand.addAll(value);
-                }
-            });
+                });
         notUpdradedList.stream()
-            .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
-                if (value.size() >= 3) {
-                    changeHand.set(true);
-                    // 添加三连多余的
-                    for (int i = 0; i < value.size() % 3; i++) {
-                        newHand.add(value.get(i));
+                .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
+                    if (value.size() >= 3) {
+                        changeHand.set(true);
+                        // 添加三连多余的
+                        for (int i = 0; i < value.size() % 3; i++) {
+                            newHand.add(value.get(i));
+                        }
+                        // 添加三连奖励
+                        for (int i = 0; i < value.size() / 3; i++) {
+                            AbstractCard abstractCard = value.get(i).makeCopy();
+                            abstractCard.upgrade();
+                            newHand.add(abstractCard);
+                            SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
+                            newHand.add(sanLianReward);
+                        }
+                    } else {
+                        newHand.addAll(value);
                     }
-                    // 添加三连奖励
-                    for (int i = 0; i < value.size() / 3; i++) {
-                        AbstractCard abstractCard = value.get(i).makeCopy();
-                        abstractCard.upgrade();
-                        newHand.add(abstractCard);
-                        SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
-                        newHand.add(sanLianReward);
-                    }
-                } else {
-                    newHand.addAll(value);
-                }
-            });
+                });
         if (changeHand.get()) {
             AbstractDungeon.player.hand.group = newHand;
         }
