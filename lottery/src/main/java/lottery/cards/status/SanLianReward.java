@@ -31,6 +31,7 @@ public class SanLianReward extends BaseCard {
         super(ID, info);
         this.rarity = cardRarity;
         this.exhaust = true;
+        setMagic(1,1);
     }
 
     @Override
@@ -40,27 +41,29 @@ public class SanLianReward extends BaseCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        // RelicLibrary 中获取
-        switch (this.rarity) {
-            case RARE:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.rareList).makeCopy());
-                break;
-            case BASIC:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.starterList).makeCopy());
-                break;
-            case SPECIAL:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.specialList).makeCopy());
-                break;
-            case COMMON:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.commonList).makeCopy());
-                break;
-            case UNCOMMON:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.uncommonList).makeCopy());
-                break;
-            case CURSE:
-            default:
-                addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.shopList).makeCopy());
-                break;
+        for (int i = 0; i < this.magicNumber; i++) {
+            // RelicLibrary 中获取
+            switch (this.rarity) {
+                case RARE:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.rareList).makeCopy());
+                    break;
+                case BASIC:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.starterList).makeCopy());
+                    break;
+                case SPECIAL:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.specialList).makeCopy());
+                    break;
+                case COMMON:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.commonList).makeCopy());
+                    break;
+                case UNCOMMON:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.uncommonList).makeCopy());
+                    break;
+                case CURSE:
+                default:
+                    addTempRelic(abstractPlayer, RandomUtil.randomEle(RelicLibrary.shopList).makeCopy());
+                    break;
+            }
         }
         this.used = true;
     }

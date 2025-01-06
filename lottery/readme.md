@@ -2,7 +2,14 @@
 
 * 必出三连器
 * 三连奖励的遗物，加入一个白名单，不让一些遗物获得。
-* new NewQueueCardAction来使用卡片存在问题，不知道什么问题，现在应该改为PlayTopCardAction（自定义）
+
+# 开发
+
+2025-1-6 21:03:11
+
+1. 修复抽卡又能抽到抽卡卡问题
+2. new NewQueueCardAction来使用卡片存在问题，不知道什么问题，现在应该改为PlayTopCardAction（自定义） 改为了 [PlayCardAction.java](src%2Fmain%2Fjava%2Flottery%2Factions%2FPlayCardAction.java)
+3. 升级卡也能合成，合成后给一个升级三连奖励+
 
 # 说明
 

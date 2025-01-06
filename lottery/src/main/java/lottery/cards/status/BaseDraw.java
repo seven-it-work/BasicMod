@@ -65,7 +65,22 @@ public abstract class BaseDraw extends BaseCard {
     public static class Probability {
         private static final List<AbstractCard> ALL_CARDS = new ArrayList<>(CardLibrary.cards.values());
 
-        private static final List<String> NOT_GENERATE_CARD_IDS = Arrays.asList(SanLianReward.ID);
+        private static final List<String> NOT_GENERATE_CARD_IDS = Arrays.asList(
+                SanLianReward.ID,
+                LuckyDraw1.ID,
+                LuckyDraw5.ID,
+                LuckyDraw10.ID,
+                SanLianReward.ID,
+                SuperLuckyDraw1.ID,
+                SuperLuckyDraw5.ID,
+                SuperLuckyDraw10.ID,
+                UnluckyDraw1.ID,
+                UnluckyDraw5.ID,
+                UnluckyDraw10.ID,
+                UsuallyDraw1.ID,
+                UsuallyDraw5.ID,
+                UsuallyDraw10.ID
+        );
 
         private int basic;
 
