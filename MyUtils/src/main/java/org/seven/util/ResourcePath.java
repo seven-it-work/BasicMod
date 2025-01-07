@@ -1,7 +1,5 @@
 package org.seven.util;
 
-import basemod.BaseMod;
-import cn.hutool.core.io.FileUtil;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglFileHandle;
 import com.badlogic.gdx.files.FileHandle;
@@ -10,14 +8,26 @@ import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.localization.OrbStrings;
+import com.megacrit.cardcrawl.localization.PotionStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
+
+import basemod.BaseMod;
+import cn.hutool.core.io.FileUtil;
 import lombok.Getter;
+
 import org.scannotation.AnnotationDB;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 
@@ -64,34 +74,38 @@ public class ResourcePath {
 
     public void loadLocalization(String lang) {
         String simpleName = this.modClass.getSimpleName();
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                localizationPath(lang, simpleName + "-CardStrings.json"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, localizationPath(lang, simpleName + "-CardStrings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                localizationPath(lang, simpleName + "-CharacterStrings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                localizationPath(lang, simpleName + "-EventStrings.json"));
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, simpleName + "-OrbStrings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                localizationPath(lang, simpleName + "-PotionStrings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                localizationPath(lang, simpleName + "-PowerStrings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                localizationPath(lang, simpleName + "-RelicStrings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                localizationPath(lang, simpleName + "-UIStrings.json"));
+            localizationPath(lang, simpleName + "-CharacterStrings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, localizationPath(lang, simpleName + "-EventStrings.json"));
+        BaseMod.loadCustomStringsFile(OrbStrings.class, localizationPath(lang, simpleName + "-OrbStrings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, localizationPath(lang, simpleName + "-PotionStrings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, localizationPath(lang, simpleName + "-PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, localizationPath(lang, simpleName + "-RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, localizationPath(lang, simpleName + "-UIStrings.json"));
     }
 
     public String getKeywordsJsonFile() {
         return this.modClass.getSimpleName() + "-Keywords.json";
     }
 
+    public String getKeyWordsByMod() {
+        return this.modID.toLowerCase(Locale.ROOT);
+    }
+
+    public String getKeyWords(String key) {
+        // 规则见BaseMod.addKeyword源码
+        return (this.modID + ":" + key).toLowerCase(Locale.ROOT);
+    }
+
     private void loadModInfo(Class<?> aClass) {
         Optional<ModInfo> infos = Arrays.stream(Loader.MODINFOS).filter((modInfo) -> {
             AnnotationDB annotationDB = Patcher.annotationDBMap.get(modInfo.jarURL);
-            if (annotationDB == null)
+            if (annotationDB == null) {
                 return false;
-            Set<String> initializers = annotationDB.getAnnotationIndex().getOrDefault(SpireInitializer.class.getName(), Collections.emptySet());
+            }
+            Set<String> initializers = annotationDB.getAnnotationIndex()
+                .getOrDefault(SpireInitializer.class.getName(), Collections.emptySet());
             return initializers.contains(aClass.getName());
         }).findFirst();
         if (infos.isPresent()) {
