@@ -1,0 +1,15 @@
+待补充异常捕获问题
+
+java.lang.NullPointerException: null
+	at guardian.relics.StasisEgg.atBattleStartPreDraw(StasisEgg.java:125) ~[Downfall.jar:?]
+	at lottery.cards.status.SanLianReward.addTempRelic(SanLianReward.java:129) ~[?:?]
+	at lottery.cards.status.SanLianReward.use(SanLianReward.java:75) ~[?:?]
+	at com.megacrit.cardcrawl.characters.AbstractPlayer.useCard(AbstractPlayer.java:1698) ~[?:?]
+	at com.megacrit.cardcrawl.actions.GameActionManager.getNextAction(GameActionManager.java:359) ~[?:?]
+	at com.megacrit.cardcrawl.actions.GameActionManager.update(GameActionManager.java:175) ~[?:?]
+	at com.megacrit.cardcrawl.rooms.AbstractRoom.update(AbstractRoom.java:325) ~[?:?]
+	at com.megacrit.cardcrawl.rooms.EventRoom.update(EventRoom.java:28) ~[desktop-1.0.jar:?]
+	at com.megacrit.cardcrawl.dungeons.AbstractDungeon.update(AbstractDungeon.java:2532) ~[?:?]
+	at com.megacrit.cardcrawl.core.CardCrawlGame.update(CardCrawlGame.java:876) ~[?:?]
+	at com.megacrit.cardcrawl.core.CardCrawlGame.render(CardCrawlGame.java:423) [?:?]
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225) [?:?]
