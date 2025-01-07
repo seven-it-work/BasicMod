@@ -1,19 +1,22 @@
 package lottery.relics;
 
-
-import basemod.abstracts.CustomRelic;
-import basemod.helpers.RelicType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+
+import basemod.abstracts.CustomRelic;
+import basemod.helpers.RelicType;
 import lottery.LotteryMod;
+
 import org.seven.util.GeneralUtils;
 import org.seven.util.TextureLoader;
 
 public abstract class BaseRelic extends CustomRelic {
     public AbstractCard.CardColor pool = null;
+
     public RelicType relicType = RelicType.SHARED;
+
     protected String imageName;
 
     //for character specific relics
@@ -21,6 +24,18 @@ public abstract class BaseRelic extends CustomRelic {
         this(id, imageName, tier, sfx);
 
         setPool(pool);
+    }
+
+    @Override
+    public String getUpdatedDescription() {
+        if (DESCRIPTIONS == null) {
+            return super.getUpdatedDescription();
+        }
+        if (DESCRIPTIONS.length < 1) {
+            return super.getUpdatedDescription();
+        }
+        return DESCRIPTIONS[0].replace(LotteryMod.resourcePath.getKeyWordsByMod() + ":",
+            " #y" + LotteryMod.resourcePath.getKeyWordsByMod() + ":");
     }
 
     public BaseRelic(String id, RelicTier tier, LandingSound sfx) {
