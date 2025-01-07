@@ -16,7 +16,10 @@ import lottery.relics.SanLianRelic;
 import org.seven.util.CardStats;
 import org.seven.util.GeneralUtils;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SanLianReward extends BaseCard {
@@ -33,6 +36,8 @@ public class SanLianReward extends BaseCard {
 
     private static final int maxRepeatTimes = 200;
 
+    private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(SanLianRelic.ID));
+
     private int repeatTimes = 0;
 
     public SanLianReward(CardRarity cardRarity) {
@@ -43,16 +48,16 @@ public class SanLianReward extends BaseCard {
     }
 
     @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return super.canUse(p, m) && !used;
+    }
+
+    @Override
     public void initializeDescription() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.set("rarity", " " + LotteryMod.getKeywordsTranslation(this.rarity.name()) + " ");
         this.rawDescription = GeneralUtils.tiHuan(this.rawDescription, jsonObject);
         super.initializeDescription();
-    }
-
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return super.canUse(p, m) && !used;
     }
 
     @Override
@@ -86,7 +91,8 @@ public class SanLianReward extends BaseCard {
 
     private AbstractRelic randomRelic(List<AbstractRelic> baseList) {
         repeatTimes++;
-        AbstractRelic abstractRelic = RandomUtil.randomEle(baseList);
+        AbstractRelic abstractRelic = RandomUtil.randomEle(
+            baseList.stream().filter(temp -> !NOT_GENERATE_IDS.contains(temp.relicId)).collect(Collectors.toList()));
         List<String> hasRelic = AbstractDungeon.player.relics.stream()
             .filter(temp -> temp.relicId.equals(abstractRelic.relicId))
             .map(temp -> temp.relicId)
