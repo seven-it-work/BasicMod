@@ -4,8 +4,18 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.daily.mods.BlueCards;
+import com.megacrit.cardcrawl.daily.mods.ColorlessCards;
+import com.megacrit.cardcrawl.daily.mods.Diverse;
+import com.megacrit.cardcrawl.daily.mods.GreenCards;
+import com.megacrit.cardcrawl.daily.mods.PurpleCards;
+import com.megacrit.cardcrawl.daily.mods.RedCards;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import cn.hutool.core.util.RandomUtil;
 import lombok.Builder;
@@ -94,11 +104,36 @@ public abstract class BaseDraw extends BaseCard {
 
         private int curse;
 
-        private AbstractCard randomByType(CardRarity cardRarity) {
+        public AbstractCard getAnyCard(AbstractCard.CardRarity rarity) {
             return RandomUtil.randomEle(CardLibrary.cards.values()
                 .stream()
-                .filter(abstractCard -> !NOT_GENERATE_CARD_IDS.contains(abstractCard.cardID))
-                .filter(abstractCard -> cardRarity.equals(abstractCard.rarity))
+                .filter(c -> c.type != CardType.CURSE)
+                .filter(c -> c.type != CardType.STATUS)
+                .filter(c -> (!UnlockTracker.isCardLocked(c.cardID) || Settings.treatEverythingAsUnlocked()))
+                .filter(c -> !NOT_GENERATE_CARD_IDS.contains(c.cardID))
+                .filter(c -> rarity.equals(c.rarity))
+                .filter(c -> {
+                    if (ModHelper.isModEnabled(ColorlessCards.ID) && CardColor.COLORLESS.equals(c.color)) {
+                        return true;
+                    }
+                    if (ModHelper.isModEnabled(Diverse.ID)) {
+                        return true;
+                    } else {
+                        if (ModHelper.isModEnabled(RedCards.ID) && CardColor.RED.equals(c.color)) {
+                            return true;
+                        }
+                        if (ModHelper.isModEnabled(GreenCards.ID) && CardColor.GREEN.equals(c.color)) {
+                            return true;
+                        }
+                        if (ModHelper.isModEnabled(PurpleCards.ID) && CardColor.PURPLE.equals(c.color)) {
+                            return true;
+                        }
+                        if (ModHelper.isModEnabled(BlueCards.ID) && CardColor.BLUE.equals(c.color)) {
+                            return true;
+                        }
+                        return AbstractDungeon.player.getCardColor().equals(c.color);
+                    }
+                })
                 .collect(Collectors.toList()));
         }
 
@@ -109,32 +144,32 @@ public abstract class BaseDraw extends BaseCard {
                 int result = RandomUtil.randomInt(sum);
                 int temp = basic;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.BASIC));
+                    abstractCards.add(getAnyCard(CardRarity.BASIC));
                     continue;
                 }
                 temp += common;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.COMMON));
+                    abstractCards.add(getAnyCard(CardRarity.COMMON));
                     continue;
                 }
                 temp += uncommon;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.UNCOMMON));
+                    abstractCards.add(getAnyCard(CardRarity.UNCOMMON));
                     continue;
                 }
                 temp += rare;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.RARE));
+                    abstractCards.add(getAnyCard(CardRarity.RARE));
                     continue;
                 }
                 temp += special;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.SPECIAL));
+                    abstractCards.add(CardLibrary.getAnyColorCard(CardRarity.SPECIAL));
                     continue;
                 }
                 temp += curse;
                 if (result < temp) {
-                    abstractCards.add(randomByType(CardRarity.CURSE));
+                    abstractCards.add(CardLibrary.getCurse());
                     continue;
                 }
                 throw new RuntimeException("没有对应概率，判断逻辑错误了");
