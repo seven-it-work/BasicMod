@@ -1,15 +1,35 @@
 package lottery.relics;
 
-import cn.hutool.core.util.RandomUtil;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
 import lottery.actions.PlayCardAction;
-import lottery.cards.status.*;
+import lottery.cards.status.LuckyDraw1;
+import lottery.cards.status.LuckyDraw10;
+import lottery.cards.status.LuckyDraw5;
+import lottery.cards.status.SanLianReward;
+import lottery.cards.status.SuperLuckyDraw1;
+import lottery.cards.status.SuperLuckyDraw10;
+import lottery.cards.status.SuperLuckyDraw5;
+import lottery.cards.status.UnluckyDraw1;
+import lottery.cards.status.UnluckyDraw10;
+import lottery.cards.status.UnluckyDraw5;
+import lottery.cards.status.UsuallyDraw1;
+import lottery.cards.status.UsuallyDraw10;
+import lottery.cards.status.UsuallyDraw5;
 
-import java.util.*;
+import org.seven.util.GeneralUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
@@ -28,15 +48,28 @@ public class SanLianRelic extends BaseRelic {
         super(ID, SanLianRelic.class.getSimpleName(), RelicTier.STARTER, LandingSound.CLINK);
     }
 
+    private static final int ADD_HAND_SIZE = 5;
+
+    private static final int OPEN_SIZE = 3;
+
+    @Override
+    public String getUpdatedDescription() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.set("handSize", ADD_HAND_SIZE);
+        jsonObject.set("openSize", OPEN_SIZE);
+        String updatedDescription = super.getUpdatedDescription();
+        return GeneralUtils.tiHuan(updatedDescription, jsonObject);
+    }
+
     @Override
     public void atBattleStart() {
-        AbstractDungeon.player.gameHandSize += 5;
+        AbstractDungeon.player.gameHandSize += ADD_HAND_SIZE;
         super.atBattleStart();
         // 使用抽牌卡3张
         List<String> drawCardIds = Arrays.asList(LuckyDraw1.ID, LuckyDraw5.ID, LuckyDraw10.ID, SuperLuckyDraw1.ID,
-                SuperLuckyDraw5.ID, SuperLuckyDraw10.ID, UnluckyDraw1.ID, UnluckyDraw5.ID, UnluckyDraw10.ID,
-                UsuallyDraw1.ID, UsuallyDraw5.ID, UsuallyDraw10.ID);
-        for (int i = 0; i < 3; i++) {
+            SuperLuckyDraw5.ID, SuperLuckyDraw10.ID, UnluckyDraw1.ID, UnluckyDraw5.ID, UnluckyDraw10.ID,
+            UsuallyDraw1.ID, UsuallyDraw5.ID, UsuallyDraw10.ID);
+        for (int i = 0; i < OPEN_SIZE; i++) {
             String s = RandomUtil.randomEle(drawCardIds);
             this.addToTop(new PlayCardAction(CardLibrary.getCard(s).makeCopy(), null, true));
             this.flash();
