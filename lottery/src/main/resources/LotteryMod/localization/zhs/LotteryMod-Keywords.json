@@ -5,5 +5,60 @@
       "关键字"
     ],
     "DESCRIPTION": "描述"
+  },
+  {
+    "PROPER_NAME": "三连奖励",
+    "NAMES": [
+      "三连奖励"
+    ],
+    "DESCRIPTION": "获得一个临时遗物奖励（只在本局对战中生效）。遗物稀有度和三连奖励的稀有度对应。"
+  },
+  {
+    "PROPER_NAME": "初始",
+    "NAMES": [
+      "BASIC",
+      "初始"
+    ],
+    "DESCRIPTION": "初始"
+  },
+  {
+    "PROPER_NAME": "特殊",
+    "NAMES": [
+      "SPECIAL",
+      "特殊"
+    ],
+    "DESCRIPTION": "特殊"
+  },
+  {
+    "PROPER_NAME": "普通",
+    "NAMES": [
+      "COMMON",
+      "普通"
+    ],
+    "DESCRIPTION": "普通"
+  },
+  {
+    "PROPER_NAME": "罕见",
+    "NAMES": [
+      "UNCOMMON",
+      "罕见"
+    ],
+    "DESCRIPTION": "罕见"
+  },
+  {
+    "PROPER_NAME": "稀有",
+    "NAMES": [
+      "RARE",
+      "稀有"
+    ],
+    "DESCRIPTION": "稀有"
+  },
+  {
+    "PROPER_NAME": "诅咒",
+    "NAMES": [
+      "CURSE",
+      "诅咒"
+    ],
+    "DESCRIPTION": "诅咒"
   }
 ]
