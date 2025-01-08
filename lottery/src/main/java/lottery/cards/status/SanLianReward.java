@@ -45,6 +45,7 @@ public class SanLianReward extends BaseCard {
         this.rarity = cardRarity;
         this.exhaust = true;
         setMagic(1, 1);
+        this.reDescription();
     }
 
     @Override
@@ -52,12 +53,36 @@ public class SanLianReward extends BaseCard {
         return super.canUse(p, m) && !used;
     }
 
-    @Override
-    public void initializeDescription() {
+    public void reDescription() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.set("rarity", " " + LotteryMod.getKeywordsTranslation(this.rarity.name()) + " ");
-        this.rawDescription = GeneralUtils.tiHuan(this.rawDescription, jsonObject);
+        jsonObject.set("relicRarity", " " + LotteryMod.getKeywordsTranslation(getRelicTier(this.rarity).name()) + " ");
+        this.rawDescription = GeneralUtils.tiHuan(this.originalRawDescription, jsonObject);
         super.initializeDescription();
+    }
+
+    @Override
+    public List<String> getCardDescriptors() {
+        // 这个是放在状态（属性里面的文本）
+        return Arrays.asList("奖励");
+    }
+
+    private AbstractRelic.RelicTier getRelicTier(CardRarity cardRarity) {
+        switch (this.rarity) {
+            case RARE:
+                return AbstractRelic.RelicTier.RARE;
+            case BASIC:
+                return AbstractRelic.RelicTier.STARTER;
+            case SPECIAL:
+                return AbstractRelic.RelicTier.SPECIAL;
+            case COMMON:
+                return AbstractRelic.RelicTier.COMMON;
+            case UNCOMMON:
+                return AbstractRelic.RelicTier.UNCOMMON;
+            case CURSE:
+            default:
+                return AbstractRelic.RelicTier.SHOP;
+        }
     }
 
     @Override
@@ -125,8 +150,23 @@ public class SanLianReward extends BaseCard {
         AbstractDungeon.topPanel.adjustRelicHbs();
         this.addToTop(new RelicAboveCreatureAction(abstractPlayer, abstractPlayer.getRelic(SanLianRelic.ID)));
         // abstractRelicCurse的开始回合效果重新触发
-        abstractRelicCurse.atPreBattle();
-        abstractRelicCurse.atBattleStartPreDraw();
-        abstractRelicCurse.atBattleStart();
+        try {
+            abstractRelicCurse.atPreBattle();
+        } catch (Exception e) {
+            LotteryMod.logger.error("三连遗物错误。atPreBattle 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
+        }
+        try {
+            abstractRelicCurse.atBattleStartPreDraw();
+        } catch (Exception e) {
+            LotteryMod.logger.error("三连遗物错误。atBattleStartPreDraw 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
+        }
+        try {
+            abstractRelicCurse.atBattleStart();
+        } catch (Exception e) {
+            LotteryMod.logger.error("三连遗物错误。atBattleStart 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
+        }
     }
 }
