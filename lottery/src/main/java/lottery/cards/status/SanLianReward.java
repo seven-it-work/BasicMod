@@ -32,6 +32,7 @@ public class SanLianReward extends BaseCard {
 
     public SanLianReward() {
         super(ID, info);
+        this.reDescription();
     }
 
     private static final int maxRepeatTimes = 200;
