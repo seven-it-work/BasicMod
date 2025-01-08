@@ -44,6 +44,11 @@ public abstract class BaseDraw extends BaseCard {
     }
 
     @Override
+    public List<String> getCardDescriptors() {
+        return Arrays.asList("抽卡器");
+    }
+
+    @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return !used;
     }
