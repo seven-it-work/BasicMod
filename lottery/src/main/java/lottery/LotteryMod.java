@@ -25,10 +25,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpireInitializer
-public class LotteryMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber, basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber, basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber, basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber, basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber, basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber {
+public class LotteryMod implements basemod.interfaces.EditStringsSubscriber, basemod.interfaces.EditRelicsSubscriber,
+    basemod.interfaces.PostUpdateSubscriber, basemod.interfaces.PostRenderSubscriber,
+    basemod.interfaces.EditCardsSubscriber, basemod.interfaces.PostInitializeSubscriber,
+    basemod.interfaces.StartGameSubscriber, basemod.interfaces.StartActSubscriber,
+    basemod.interfaces.PostDungeonInitializeSubscriber, basemod.interfaces.EditCharactersSubscriber,
+    basemod.interfaces.EditKeywordsSubscriber, basemod.interfaces.AddAudioSubscriber {
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
-    private static final Logger logger = LogManager.getLogger(LotteryMod.class);
+
+    public static final Logger logger = LogManager.getLogger(LotteryMod.class);
+
     private static final String defaultLanguage = "zhs";
 
     public static ResourcePath resourcePath;
@@ -51,8 +58,8 @@ public class LotteryMod implements basemod.interfaces.EditStringsSubscriber, bas
 
     }
 
-    public static String getKeywordsTranslation(String key) {
-        return LotteryMod.resourcePath.getKeyWords(BaseMod.getKeywordProper(LotteryMod.resourcePath.getKeyWords(key)));
+    public static String getKeywordsTranslation(String keyWordName) {
+        return LotteryMod.resourcePath.getProperNameByWordName(keyWordName);
     }
 
     @Override
