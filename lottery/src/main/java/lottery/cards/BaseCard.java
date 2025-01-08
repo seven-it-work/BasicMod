@@ -1,8 +1,8 @@
 package lottery.cards;
 
-import basemod.BaseMod;
-import basemod.abstracts.CustomCard;
-import basemod.abstracts.DynamicVariable;
+import static org.seven.util.GeneralUtils.removePrefix;
+import static org.seven.util.TextureLoader.getCardTextureString;
+
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,18 +10,20 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import basemod.BaseMod;
+import basemod.abstracts.CustomCard;
+import basemod.abstracts.DynamicVariable;
+import lottery.LotteryMod;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import lottery.LotteryMod;
 import org.seven.util.CardStats;
 import org.seven.util.TriFunction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.seven.util.GeneralUtils.removePrefix;
-import static org.seven.util.TextureLoader.getCardTextureString;
 
 public abstract class BaseCard extends CustomCard {
     final private static Map<String, DynamicVariable> customVars = new HashMap<>();
@@ -36,16 +38,29 @@ public abstract class BaseCard extends CustomCard {
     protected boolean upgradeBlock;
     protected boolean upgradeMagic;
     protected int damageUpgrade;
+
     protected int blockUpgrade;
+
     protected int magicUpgrade;
+
     protected boolean baseExhaust = false;
+
     protected boolean upgExhaust = false;
+
     protected boolean baseEthereal = false;
+
     protected boolean upgEthereal = false;
+
     protected boolean baseInnate = false;
+
     protected boolean upgInnate = false;
+
     protected boolean baseRetain = false;
+
     protected boolean upgRetain = false;
+
+    protected String originalRawDescription = "";
+
     boolean inCalc = false;
 
     public BaseCard(String ID, CardStats info) {
@@ -62,6 +77,7 @@ public abstract class BaseCard extends CustomCard {
 
     public BaseCard(String ID, int cost, CardType cardType, CardTarget target, CardRarity rarity, CardColor color, String cardImage) {
         super(ID, getName(ID), cardImage, cost, getInitialDescription(ID), cardType, color, rarity, target);
+        this.originalRawDescription = this.rawDescription;
         this.cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
         this.originalName = cardStrings.NAME;
 
