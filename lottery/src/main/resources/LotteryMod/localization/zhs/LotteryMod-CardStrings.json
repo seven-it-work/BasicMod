@@ -1,7 +1,7 @@
 {
   "${modID}:SanLianReward": {
     "NAME": "三连奖励",
-    "DESCRIPTION": "稀有度${rarity}。本局对战中：根据三连的稀有度获得 !M! 个对应的遗物（可以重复获得遗物）。"
+    "DESCRIPTION": "稀有度${rarity}。本局对战中：根据三连的稀有度获得 !M! 个${relicRarity}的遗物（可以重复获得遗物）。"
   },
   "${modID}:LuckyDraw1": {
     "NAME": "好运卡",
