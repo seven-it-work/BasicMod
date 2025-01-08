@@ -17,6 +17,7 @@
     "PROPER_NAME": "初始",
     "NAMES": [
       "BASIC",
+      "STARTER",
       "初始"
     ],
     "DESCRIPTION": "初始"
@@ -60,5 +61,13 @@
       "诅咒"
     ],
     "DESCRIPTION": "诅咒"
+  },
+  {
+    "PROPER_NAME": "商店",
+    "NAMES": [
+      "SHOP",
+      "商店"
+    ],
+    "DESCRIPTION": "商店"
   }
 ]
