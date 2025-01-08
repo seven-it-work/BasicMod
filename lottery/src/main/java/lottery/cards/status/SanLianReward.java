@@ -37,7 +37,7 @@ public class SanLianReward extends BaseCard {
 
     private static final int maxRepeatTimes = 200;
 
-    private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(SanLianRelic.ID));
+    private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(SanLianRelic.ID,"bronze:BottledCode"));
 
     private int repeatTimes = 0;
 
@@ -156,21 +156,18 @@ public class SanLianReward extends BaseCard {
         } catch (Exception e) {
             LotteryMod.logger.error("三连遗物错误。atPreBattle 遗物类名:{}，遗物id：{}，遗物名称:{}",
                 abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
-            throw e;
         }
         try {
             abstractRelicCurse.atBattleStartPreDraw();
         } catch (Exception e) {
             LotteryMod.logger.error("三连遗物错误。atBattleStartPreDraw 遗物类名:{}，遗物id：{}，遗物名称:{}",
                 abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
-            throw e;
         }
         try {
             abstractRelicCurse.atBattleStart();
         } catch (Exception e) {
             LotteryMod.logger.error("三连遗物错误。atBattleStart 遗物类名:{}，遗物id：{}，遗物名称:{}",
                 abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
-            throw e;
         }
     }
 }
