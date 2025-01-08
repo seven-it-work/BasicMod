@@ -35,8 +35,11 @@ import java.util.Set;
 public class ResourcePath {
 
     private final String resourcesFolder;
+
     private ModInfo info;
+
     private String modID;
+
     private final Class<?> modClass;
 
     public ResourcePath(Class<?> aClass) {
@@ -50,7 +53,8 @@ public class ResourcePath {
      */
     public static void createBaseFile(Class<?> modClass, String resourceFolder) {
         final String simpleName = modClass.getSimpleName();
-        File baseFile = new File(ResourcePath.class.getProtectionDomain().getCodeSource().getLocation().getFile() + "/utils/");
+        File baseFile = new File(
+            ResourcePath.class.getProtectionDomain().getCodeSource().getLocation().getFile() + "/utils/");
         File targetFile = new File(resourceFolder + "/" + simpleName + "/");
         FileUtil.copyContent(baseFile, targetFile, false);
         // 国际化信息处理
@@ -62,6 +66,13 @@ public class ResourcePath {
         }).forEach(file -> {
             FileUtil.rename(file, simpleName + "-" + file.getName(), false);
         });
+    }
+
+    public String getProperNameByWordName(String keyWordName) {
+        // 获取副本前缀
+        String keyWords = this.getKeyWords(keyWordName);
+        String realKeyWords = BaseMod.getKeywordPrefix(keyWords) + BaseMod.getKeywordUnique(keyWords);
+        return BaseMod.getKeywordPrefix(keyWords) + BaseMod.getKeywordProper(realKeyWords);
     }
 
     public String localizationPath(String lang, String file) {
