@@ -1,6 +1,8 @@
 package org.seven.util;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,6 +28,9 @@ public class GeneralUtils {
      * 将字符串中的数据进行替换
      */
     public static String tiHuan(String s, JSONObject jsonObject) {
+        if (StrUtil.isBlank(s)) {
+            return "";
+        }
         Pattern compile = Pattern.compile("(\\$\\{.*?})");
         Matcher matcher = compile.matcher(s);
         while (matcher.find()) {
