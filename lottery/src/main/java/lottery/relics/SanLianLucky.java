@@ -20,7 +20,7 @@ public class SanLianLucky extends BaseRelic {
     private static final int COUNT_MAX = 20;
 
     public SanLianLucky() {
-        super(ID, SanLianLucky.class.getSimpleName(), RelicTier.SPECIAL, LandingSound.CLINK);
+        super(ID, SanLianLucky.class.getSimpleName(), RelicTier.SHOP, LandingSound.CLINK);
         this.counter = 0;
     }
 
@@ -50,5 +50,4 @@ public class SanLianLucky extends BaseRelic {
         jsonObject.set("max", COUNT_MAX);
         return GeneralUtils.tiHuan(super.getUpdatedDescription(), jsonObject);
     }
-
 }
