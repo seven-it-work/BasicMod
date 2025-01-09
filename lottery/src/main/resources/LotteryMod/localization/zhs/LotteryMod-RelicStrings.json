@@ -19,5 +19,19 @@
     "DESCRIPTIONS": [
       "每抽奖${max}次，获得一张随机稀有度 lottery:三连奖励 。"
     ]
+  },
+  "${modID}:ShangZaoBa": {
+    "NAME": "我上早八",
+    "FLAVOR": "去您的吧，倒霉卡！",
+    "DESCRIPTIONS": [
+      "每回合首次抽到一张 #y诅咒 卡时，打出它并将其 #y消耗 。"
+    ]
+  },
+  "${modID}:JinShenHuTi": {
+    "NAME": "金身护体",
+    "FLAVOR": "南无阿弥陀佛，妖魔鬼怪快离开~",
+    "DESCRIPTIONS": [
+      "回合结束时，抽牌堆中每有一张 #y诅咒 卡，获取一定 #y格挡 。"
+    ]
   }
 }
