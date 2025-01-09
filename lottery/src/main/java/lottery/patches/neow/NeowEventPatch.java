@@ -1,9 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
-package lottery.patches;
+package lottery.patches.neow;
 
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -21,8 +16,6 @@ import com.megacrit.cardcrawl.vfx.InfiniteSpeechBubble;
 import basemod.ReflectionHacks;
 import javassist.CtBehavior;
 import lottery.LotteryMod;
-import lottery.patches.neow.LotteryModReward;
-import lottery.patches.neow.SanLianModReward;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
