@@ -1,14 +1,18 @@
 package lottery.relics;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import com.megacrit.cardcrawl.vfx.RelicAboveCreatureEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
-import lottery.actions.PlayCardAction;
 import lottery.cards.status.LuckyDraw1;
 import lottery.cards.status.LuckyDraw10;
 import lottery.cards.status.LuckyDraw5;
@@ -27,10 +31,10 @@ import org.seven.util.GeneralUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 public class SanLianRelic extends BaseRelic {
@@ -71,8 +75,9 @@ public class SanLianRelic extends BaseRelic {
             UsuallyDraw1.ID, UsuallyDraw5.ID, UsuallyDraw10.ID);
         for (int i = 0; i < OPEN_SIZE; i++) {
             String s = RandomUtil.randomEle(drawCardIds);
-            this.addToTop(new PlayCardAction(CardLibrary.getCard(s).makeCopy(), null, true));
-            this.flash();
+            AbstractDungeon.actionManager.addCardQueueItem(
+                new CardQueueItem(CardLibrary.getCard(s).makeCopy(), true, EnergyPanel.getCurrentEnergy(), false, true),
+                true);
         }
         this.gameHandSize = AbstractDungeon.player.gameHandSize;
     }
@@ -95,66 +100,35 @@ public class SanLianRelic extends BaseRelic {
     @Override
     public void onRefreshHand() {
         super.onRefreshHand();
-        AtomicBoolean changeHand = new AtomicBoolean(false);
-        ArrayList<AbstractCard> newHand = new ArrayList<>();
-        // 过滤掉不需要的
-        List<AbstractCard> group = AbstractDungeon.player.hand.group.stream().filter(abstractCard -> {
+        ArrayList<AbstractCard> tempHand = new ArrayList<>(AbstractDungeon.player.hand.group);
+        HashMap<String, List<AbstractCard>> countMap = new HashMap<>();
+        tempHand.forEach(abstractCard -> {
             if (NOT_IN_SAN_LIAN.contains(abstractCard.cardID)) {
-                newHand.add(abstractCard);
-                return false;
+                return;
             }
-            return true;
-        }).collect(Collectors.toList());
-        // 已升级的
-        List<AbstractCard> updradedList = group.stream().filter(abstractCard -> abstractCard.upgraded).collect(Collectors.toList());
-        List<AbstractCard> notUpdradedList = group.stream().filter(abstractCard -> !abstractCard.upgraded).collect(Collectors.toList());
-        if (updradedList.size() < 3 && notUpdradedList.size() < 3) {
-            // 数量小于3不做处理了
-            return;
-        }
-        updradedList.stream()
-                .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
-                    if (value.size() >= 3) {
-                        changeHand.set(true);
-                        // 添加三连多余的
-                        for (int i = 0; i < value.size() % 3; i++) {
-                            newHand.add(value.get(i));
-                        }
-                        // 添加三连奖励
-                        for (int i = 0; i < value.size() / 3; i++) {
-                            AbstractCard abstractCard = value.get(i).makeCopy();
-                            abstractCard.upgrade();
-                            newHand.add(abstractCard);
-                            SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
-                            sanLianReward.upgrade();
-                            newHand.add(sanLianReward);
-                        }
-                    } else {
-                        newHand.addAll(value);
-                    }
-                });
-        notUpdradedList.stream()
-                .collect(Collectors.groupingBy(card -> card.cardID)).forEach((key, value) -> {
-                    if (value.size() >= 3) {
-                        changeHand.set(true);
-                        // 添加三连多余的
-                        for (int i = 0; i < value.size() % 3; i++) {
-                            newHand.add(value.get(i));
-                        }
-                        // 添加三连奖励
-                        for (int i = 0; i < value.size() / 3; i++) {
-                            AbstractCard abstractCard = value.get(i).makeCopy();
-                            abstractCard.upgrade();
-                            newHand.add(abstractCard);
-                            SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
-                            newHand.add(sanLianReward);
-                        }
-                    } else {
-                        newHand.addAll(value);
-                    }
-                });
-        if (changeHand.get()) {
-            AbstractDungeon.player.hand.group = newHand;
-        }
+            String key = abstractCard.cardID + abstractCard.timesUpgraded;
+            List<AbstractCard> orDefault = countMap.getOrDefault(key, new ArrayList<>());
+            orDefault.add(abstractCard);
+            if (orDefault.size() == 3) {
+                AbstractDungeon.effectList.add(
+                    new RelicAboveCreatureEffect(Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F,
+                        Settings.HEIGHT / 2.0F, this));
+                orDefault.forEach(temp -> AbstractDungeon.player.hand.removeCard(temp));
+                orDefault.clear();
+                AbstractCard newCard = abstractCard.makeCopy();
+                SanLianReward sanLianReward = new SanLianReward(abstractCard.rarity);
+                if (newCard.upgraded) {
+                    sanLianReward.upgrade();
+                }
+                newCard.upgrade();
+                AbstractDungeon.effectList.add(
+                    new ShowCardAndAddToHandEffect(newCard, Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F,
+                        Settings.HEIGHT / 2.0F));
+                AbstractDungeon.effectList.add(
+                    new ShowCardAndAddToHandEffect(sanLianReward, Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F,
+                        Settings.HEIGHT / 2.0F));
+            }
+            countMap.put(key, orDefault);
+        });
     }
 }
