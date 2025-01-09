@@ -31,8 +31,7 @@ public class SanLianReward extends BaseCard {
     private boolean used = false;
 
     public SanLianReward() {
-        super(ID, info);
-        this.reDescription();
+        this(CardRarity.CURSE);
     }
 
     private static final int maxRepeatTimes = 200;
@@ -43,8 +42,9 @@ public class SanLianReward extends BaseCard {
 
     public SanLianReward(CardRarity cardRarity) {
         super(ID, info);
-        this.rarity = cardRarity;
-        this.exhaust = true;
+        setDisplayRarity(cardRarity);
+        setEthereal(true);
+        setExhaust(true);
         setMagic(1, 1);
         this.reDescription();
     }
@@ -54,10 +54,10 @@ public class SanLianReward extends BaseCard {
         return super.canUse(p, m) && !used;
     }
 
-    public void reDescription() {
+    private void reDescription() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.set("rarity", " " + LotteryMod.getKeywordsTranslation(this.rarity.name()) + " ");
-        jsonObject.set("relicRarity", " " + LotteryMod.getKeywordsTranslation(getRelicTier(this.rarity).name()) + " ");
+        jsonObject.set("relicRarity", " " + LotteryMod.getKeywordsTranslation(getRelicTier().name()) + " ");
         this.rawDescription = GeneralUtils.tiHuan(this.originalRawDescription, jsonObject);
         super.initializeDescription();
     }
@@ -68,7 +68,7 @@ public class SanLianReward extends BaseCard {
         return Arrays.asList("奖励");
     }
 
-    private AbstractRelic.RelicTier getRelicTier(CardRarity cardRarity) {
+    private AbstractRelic.RelicTier getRelicTier() {
         switch (this.rarity) {
             case RARE:
                 return AbstractRelic.RelicTier.RARE;

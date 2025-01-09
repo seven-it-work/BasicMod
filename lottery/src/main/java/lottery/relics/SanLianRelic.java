@@ -10,6 +10,9 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.RelicAboveCreatureEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
+import basemod.cardmods.EtherealMod;
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
@@ -46,13 +49,13 @@ public class SanLianRelic extends BaseRelic {
         NOT_IN_SAN_LIAN.add(SanLianReward.ID);
     }
 
-    private int gameHandSize;
+    private static final int ADD_HAND_SIZE = 5;
 
     public SanLianRelic() {
         super(ID, SanLianRelic.class.getSimpleName(), RelicTier.STARTER, LandingSound.CLINK);
     }
 
-    private static final int ADD_HAND_SIZE = 5;
+    private int masterHandSize;
 
     private static final int OPEN_SIZE = 3;
 
@@ -67,7 +70,8 @@ public class SanLianRelic extends BaseRelic {
 
     @Override
     public void atBattleStart() {
-        AbstractDungeon.player.gameHandSize += ADD_HAND_SIZE;
+        this.masterHandSize = AbstractDungeon.player.masterHandSize;
+        AbstractDungeon.player.masterHandSize += ADD_HAND_SIZE;
         super.atBattleStart();
         // 使用抽牌卡3张
         List<String> drawCardIds = Arrays.asList(LuckyDraw1.ID, LuckyDraw5.ID, LuckyDraw10.ID, SuperLuckyDraw1.ID,
@@ -75,11 +79,18 @@ public class SanLianRelic extends BaseRelic {
             UsuallyDraw1.ID, UsuallyDraw5.ID, UsuallyDraw10.ID);
         for (int i = 0; i < OPEN_SIZE; i++) {
             String s = RandomUtil.randomEle(drawCardIds);
+            AbstractCard card = CardLibrary.getCard(s).makeCopy();
+            CardModifierManager.addModifier(card, new EtherealMod());
+            CardModifierManager.addModifier(card, new ExhaustMod());
             AbstractDungeon.actionManager.addCardQueueItem(
-                new CardQueueItem(CardLibrary.getCard(s).makeCopy(), true, EnergyPanel.getCurrentEnergy(), false, true),
-                true);
+                new CardQueueItem(card, true, EnergyPanel.getCurrentEnergy(), false, true), true);
         }
-        this.gameHandSize = AbstractDungeon.player.gameHandSize;
+    }
+
+    @Override
+    public void onPlayerEndTurn() {
+        super.onPlayerEndTurn();
+        AbstractDungeon.player.masterHandSize = this.masterHandSize;
     }
 
     @Override
@@ -87,14 +98,13 @@ public class SanLianRelic extends BaseRelic {
         this.flash();
         // 移除上次加载的遗物
         AbstractDungeon.player.relics = (ArrayList<AbstractRelic>) AbstractDungeon.player.relics.stream()
-                .filter(abstractRelic -> !THIS_BATTLE_ADD_RELICS.contains(abstractRelic))
-                .collect(Collectors.toList());
+            .filter(abstractRelic -> !THIS_BATTLE_ADD_RELICS.contains(abstractRelic))
+            .collect(Collectors.toList());
         AbstractDungeon.player.reorganizeRelics();
         AbstractRelic.relicPage = 0;
         AbstractDungeon.topPanel.adjustRelicHbs();
         // 清空list
         THIS_BATTLE_ADD_RELICS.clear();
-        AbstractDungeon.player.gameHandSize = this.gameHandSize;
     }
 
     @Override
@@ -120,6 +130,8 @@ public class SanLianRelic extends BaseRelic {
                 if (newCard.upgraded) {
                     sanLianReward.upgrade();
                 }
+                CardModifierManager.addModifier(sanLianReward, new EtherealMod());
+                CardModifierManager.addModifier(sanLianReward, new ExhaustMod());
                 newCard.upgrade();
                 AbstractDungeon.effectList.add(
                     new ShowCardAndAddToHandEffect(newCard, Settings.WIDTH / 2.0F - AbstractCard.IMG_WIDTH / 2.0F,

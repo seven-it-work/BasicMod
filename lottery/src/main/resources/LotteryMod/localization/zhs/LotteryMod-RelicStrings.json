@@ -10,7 +10,7 @@
     "NAME": "三连",
     "FLAVOR": "描述1",
     "DESCRIPTIONS": [
-      "手牌上限+${handSize}。战斗开始时随机打开${openSize}抽卡包每有三张相同的卡（包含等级），合成一张升级牌(已经升级不在升级)和一张对应稀有度的 lottery:三连奖励 。"
+      "战斗开始时多抽 #y${handSize} 张牌。战斗开始时随机打开${openSize}抽卡包每有三张相同的卡（包含等级），合成一张升级牌(已经升级不在升级)和一张对应稀有度的 lottery:三连奖励 。"
     ]
   },
   "${modID}:SanLianLucky": {

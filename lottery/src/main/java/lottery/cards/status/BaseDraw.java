@@ -40,6 +40,9 @@ public abstract class BaseDraw extends BaseCard {
     public BaseDraw(String ID, CardStats info, Probability probability) {
         super(ID, info);
         this.exhaust = true;
+        setEthereal(true);
+        setExhaust(true);
+        this.exhaustOnUseOnce=true;
         this.probability = probability;
     }
 

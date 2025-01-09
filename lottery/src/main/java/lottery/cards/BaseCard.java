@@ -8,10 +8,13 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.KeywordStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.BaseMod;
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import lottery.LotteryMod;
@@ -93,6 +96,23 @@ public abstract class BaseCard extends CustomCard {
         this.damageUpgrade = 0;
         this.blockUpgrade = 0;
         this.magicUpgrade = 0;
+    }
+
+    @Override
+    public void initializeDescription() {
+        if (this.exhaust) {
+            String name = GameDictionary.EXHAUST.NAMES[0];
+            if (!this.rawDescription.contains(name)) {
+                this.rawDescription += "| " + name + " ";
+            }
+        }
+        if (this.isEthereal) {
+            String name = GameDictionary.ETHEREAL.NAMES[0];
+            if (!this.rawDescription.contains(name)) {
+                this.rawDescription += "| " + name + " ";
+            }
+        }
+        super.initializeDescription();
     }
 
     private static String getName(String ID) {

@@ -1,4 +1,12 @@
 {
+    "${modID}:BaseLuShiPlayer": {
+      "NAMES": [
+        "基础炉石玩家"
+      ],
+      "TEXT": [
+        "炉石战旗"
+      ]
+    },
   "${modID}:CharacterID": {
     "NAMES": [
       "The Name (Displayed in character select)",
