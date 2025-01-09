@@ -74,6 +74,8 @@ public abstract class BaseDraw extends BaseCard {
                 }
             }
         }
+        // 清理使用的牌记录（这里是无奈之举，因为有个遗物 Normality 他会记录打出牌的数量，导致这个回合打不了任何牌了）
+        AbstractDungeon.actionManager.cardsPlayedThisTurn.clear();
     }
 
     @Builder
