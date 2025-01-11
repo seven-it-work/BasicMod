@@ -33,5 +33,19 @@
     "DESCRIPTIONS": [
       "回合结束时，抽牌堆中每有一张 #y诅咒 卡，获取一定 #y格挡 。"
     ]
+  },
+  "${modID}:DaoDanGui": {
+    "NAME": "捣蛋鬼",
+    "FLAVOR": "不给糖，就捣蛋~",
+    "DESCRIPTIONS": [
+      "回合开始时，给你的手牌中加入3张相同的 #y状态 或者 #y诅咒 卡。"
+    ]
+  },
+  "${modID}:YingShu": {
+    "NAME": "英叔",
+    "FLAVOR": "急急如律令！",
+    "DESCRIPTIONS": [
+      "每抽到一张 #y状态 或 #y诅咒 获得5点 #y护甲。"
+    ]
   }
 }

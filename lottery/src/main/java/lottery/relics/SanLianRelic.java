@@ -103,6 +103,14 @@ public class SanLianRelic extends BaseRelic {
         AbstractDungeon.player.reorganizeRelics();
         AbstractRelic.relicPage = 0;
         AbstractDungeon.topPanel.adjustRelicHbs();
+        THIS_BATTLE_ADD_RELICS.forEach(abstractRelic -> {
+            try {
+                abstractRelic.onUnequip();
+            } catch (Exception e) {
+                LotteryMod.logger.error("三连遗物错误。onUnequip 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                        abstractRelic.getClass().getName(), abstractRelic.relicId, abstractRelic.name);
+            }
+        });
         // 清空list
         THIS_BATTLE_ADD_RELICS.clear();
     }

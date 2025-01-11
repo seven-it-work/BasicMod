@@ -169,5 +169,11 @@ public class SanLianReward extends BaseCard {
             LotteryMod.logger.error("三连遗物错误。atBattleStart 遗物类名:{}，遗物id：{}，遗物名称:{}",
                 abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
         }
+        try {
+            abstractRelicCurse.onEquip();
+        } catch (Exception e) {
+            LotteryMod.logger.error("三连遗物错误。onEquip 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                abstractRelicCurse.getClass().getName(), abstractRelicCurse.relicId, abstractRelicCurse.name);
+        }
     }
 }

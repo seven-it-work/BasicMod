@@ -95,8 +95,8 @@ public class LotteryMod implements basemod.interfaces.EditStringsSubscriber, bas
     @Override
     public void receiveEditCharacters() {
         // 向basemod注册人物
-        BaseMod.addCharacter(new BaseLuShiPlayer(CardCrawlGame.playerName), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT,
-            PlayerColorEnum.BASE_LU_SHI_PLAYER);
+//        BaseMod.addCharacter(new BaseLuShiPlayer(CardCrawlGame.playerName), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT,
+//            PlayerColorEnum.BASE_LU_SHI_PLAYER);
     }
 
     public static void initialize() {
