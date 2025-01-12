@@ -11,7 +11,7 @@
     "NAMES": [
       "三连奖励"
     ],
-    "DESCRIPTION": "获得一个临时遗物奖励（只在本局对战中生效）。遗物稀有度和三连奖励的稀有度对应。"
+    "DESCRIPTION": "卡牌稀有度：获得一个临时遗物奖励（只在本局对战中生效）。遗物稀有度和三连奖励的稀有度对应。"
   },
   {
     "PROPER_NAME": "初始",
@@ -20,7 +20,7 @@
       "STARTER",
       "初始"
     ],
-    "DESCRIPTION": "初始"
+    "DESCRIPTION": "卡牌稀有度：初始"
   },
   {
     "PROPER_NAME": "特殊",
@@ -28,7 +28,7 @@
       "SPECIAL",
       "特殊"
     ],
-    "DESCRIPTION": "特殊"
+    "DESCRIPTION": "卡牌稀有度：特殊"
   },
   {
     "PROPER_NAME": "普通",
@@ -36,7 +36,7 @@
       "COMMON",
       "普通"
     ],
-    "DESCRIPTION": "普通"
+    "DESCRIPTION": "卡牌稀有度：普通"
   },
   {
     "PROPER_NAME": "罕见",
@@ -44,7 +44,7 @@
       "UNCOMMON",
       "罕见"
     ],
-    "DESCRIPTION": "罕见"
+    "DESCRIPTION": "卡牌稀有度：罕见"
   },
   {
     "PROPER_NAME": "稀有",
@@ -52,7 +52,7 @@
       "RARE",
       "稀有"
     ],
-    "DESCRIPTION": "稀有"
+    "DESCRIPTION": "卡牌稀有度：稀有"
   },
   {
     "PROPER_NAME": "诅咒",
@@ -60,7 +60,7 @@
       "CURSE",
       "诅咒"
     ],
-    "DESCRIPTION": "诅咒"
+    "DESCRIPTION": "卡牌稀有度：诅咒"
   },
   {
     "PROPER_NAME": "商店",
@@ -68,6 +68,6 @@
       "SHOP",
       "商店"
     ],
-    "DESCRIPTION": "商店"
+    "DESCRIPTION": "卡牌稀有度：商店"
   }
 ]
