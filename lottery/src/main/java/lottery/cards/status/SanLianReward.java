@@ -54,7 +54,7 @@ public class SanLianReward extends BaseCard {
 
     public SanLianReward(CardRarity cardRarity) {
         super(ID, info);
-        setDisplayRarity(cardRarity);
+        this.rarity=cardRarity;
         setEthereal(true);
         setExhaust(true);
         setMagic(1, 1);
