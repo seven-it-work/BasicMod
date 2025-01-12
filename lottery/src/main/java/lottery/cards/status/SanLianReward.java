@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.*;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONObject;
@@ -38,6 +38,18 @@ public class SanLianReward extends BaseCard {
 
     private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(
             SanLianRelic.ID,
+            BottledLightning.ID,
+            BottledFlame.ID,
+            BottledTornado.ID,
+            Astrolabe.ID,
+            Orrery.ID,
+            EmptyCage.ID,
+            DollysMirror.ID,
+            Cauldron.ID,
+            TinyHouse.ID,
+            "Guardian:BottledAnomaly",
+            "Guardian:BottledStasis",
+
             "Astrolabe",
             "Bottled Flame",
             "Bottled Lightning",
@@ -130,7 +142,15 @@ public class SanLianReward extends BaseCard {
     private AbstractRelic randomRelic(List<AbstractRelic> baseList) {
         repeatTimes++;
         AbstractRelic abstractRelic = RandomUtil.randomEle(
-            baseList.stream().filter(temp -> !NOT_GENERATE_IDS.contains(temp.relicId)).collect(Collectors.toList()));
+            baseList.stream().filter(temp -> {
+                boolean contains = NOT_GENERATE_IDS.contains(temp.relicId);
+                if (!contains){
+                    LotteryMod.logger.debug("包含。onEquip 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                            temp.getClass().getName(), temp.relicId, temp.name);
+
+                }
+                return !contains;
+            }).collect(Collectors.toList()));
         List<String> hasRelic = AbstractDungeon.player.relics.stream()
             .filter(temp -> temp.relicId.equals(abstractRelic.relicId))
             .map(temp -> temp.relicId)
