@@ -50,5 +50,21 @@
   "${modID}:UsuallyDraw10": {
     "NAME": "普通卡",
     "DESCRIPTION": "抽 !M! 次。35%基础卡、35%常见卡、10%不常见卡、10%稀有、5%特殊、5%诅咒。 NL 只能用一次"
+  },
+  "${modID}:DefaultAttack": {
+    "NAME": "攻击",
+    "DESCRIPTION": "造成 !D! 伤害"
+  },
+  "${modID}:DefaultDefault": {
+    "NAME": "格挡",
+    "DESCRIPTION": "获得 !B! 格挡"
+  },
+  "${modID}:RandomCopying": {
+    "NAME": "随机复制",
+    "DESCRIPTION": "造成 !D! 攻击，获得 !B! 点格挡。打出时随机获得0~3张随机复制到弃牌堆。"
+  },
+  "${modID}:DrawCards": {
+    "NAME": "随机抽牌",
+    "DESCRIPTION": "随机抽取 !M! ~6张牌。"
   }
 }

@@ -1,5 +1,6 @@
 package lottery.characters;
 
+import cn.hutool.core.util.RandomUtil;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -20,6 +21,12 @@ import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbBlue;
 
 import basemod.abstracts.CustomPlayer;
 import lottery.LotteryMod;
+import lottery.cards.DefaultAttack;
+import lottery.cards.DefaultDefault;
+import lottery.cards.DrawCards;
+import lottery.cards.RandomCopying;
+import lottery.cards.status.SanLianReward;
+import lottery.relics.SanLianRelic;
 
 import java.util.ArrayList;
 
@@ -67,17 +74,23 @@ public class BaseLuShiPlayer extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         // 初始卡
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<5; x++) {
-            retVal.add(Strike_Red.ID);
+        for(int x = 0; x<4; x++) {
+            retVal.add(DefaultAttack.ID);
         }
+        for(int x = 0; x<4; x++) {
+            retVal.add(DefaultDefault.ID);
+        }
+        retVal.add(DrawCards.ID);
+        retVal.add(RandomCopying.ID);
         return retVal;
     }
+
 
     @Override
     public ArrayList<String> getStartingRelics() {
         // 初始遗物
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(Vajra.ID);
+        retVal.add(SanLianRelic.ID);
         return retVal;
     }
 
