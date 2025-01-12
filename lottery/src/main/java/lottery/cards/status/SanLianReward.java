@@ -36,7 +36,19 @@ public class SanLianReward extends BaseCard {
 
     private static final int maxRepeatTimes = 200;
 
-    private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(SanLianRelic.ID,"bronze:BottledCode"));
+    private static final Set<String> NOT_GENERATE_IDS = new HashSet<>(Arrays.asList(
+            SanLianRelic.ID,
+            "Astrolabe",
+            "Bottled Flame",
+            "Bottled Lightning",
+            "Bottled Tornado",
+            "Orrery",
+            "Empty Cage",
+            "DollysMirror",
+            "Cauldron",
+            "Tiny House",
+            "bronze:BottledCode"
+    ));
 
     private int repeatTimes = 0;
 
