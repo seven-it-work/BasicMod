@@ -10,7 +10,7 @@ public class DrawCards extends BaseCard {
     public static final String ID = LotteryMod.resourcePath.makeID(DrawCards.class.getSimpleName());
 
     private static final CardStats info = new CardStats(LotteryMod.PlayerColorEnum.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.SKILL, CardRarity.COMMON,
-            CardTarget.ENEMY, 1);
+            CardTarget.SELF, 1);
 
 
     public DrawCards() {

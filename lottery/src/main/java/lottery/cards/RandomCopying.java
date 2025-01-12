@@ -14,7 +14,7 @@ public class RandomCopying extends BaseCard {
     public static final String ID = LotteryMod.resourcePath.makeID(RandomCopying.class.getSimpleName());
 
     private static final CardStats info = new CardStats(LotteryMod.PlayerColorEnum.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.ATTACK, CardRarity.COMMON,
-            CardTarget.SELF, 1);
+            CardTarget.ENEMY, 1);
 
 
     public RandomCopying() {
