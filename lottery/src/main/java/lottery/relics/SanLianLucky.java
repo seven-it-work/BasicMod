@@ -1,21 +1,21 @@
 package lottery.relics;
 
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSONObject;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
+import lottery.cards.BaseCard;
 import lottery.cards.status.BaseDraw;
 import lottery.cards.status.SanLianReward;
-
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
 public class SanLianLucky extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(SanLianLucky.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(SanLianLucky.class.getSimpleName());
 
     private static final int COUNT_MAX = 20;
 

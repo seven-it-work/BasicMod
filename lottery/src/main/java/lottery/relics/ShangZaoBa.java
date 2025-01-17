@@ -1,15 +1,14 @@
 package lottery.relics;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-
 import cn.hutool.json.JSONObject;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import lottery.LotteryMod;
 import lottery.actions.PlayCardAction;
-
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
 public class ShangZaoBa extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(ShangZaoBa.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(ShangZaoBa.class.getSimpleName());
 
     private boolean isPlay = false;
 

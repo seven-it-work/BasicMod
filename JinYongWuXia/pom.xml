@@ -10,7 +10,7 @@
     </parent>
 
     <properties>
-        <modID>JinYongWuXia</modID>
+        <modID>jinyongwuxia</modID>
         <author>sevenyjl</author>
     </properties>
 
@@ -21,6 +21,13 @@
     <description>
         根据金庸中武学以及人物进行改变。
     </description>
+    <dependencies>
+        <dependency>
+            <groupId>org.seven</groupId>
+            <artifactId>MyUtils</artifactId>
+            <version>0.0.0</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>

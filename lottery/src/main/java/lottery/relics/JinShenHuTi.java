@@ -1,17 +1,16 @@
 package lottery.relics;
 
+import cn.hutool.json.JSONObject;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
-import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
-
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
 public class JinShenHuTi extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(JinShenHuTi.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(JinShenHuTi.class.getSimpleName());
 
     public JinShenHuTi() {
         super(ID, JinShenHuTi.class.getSimpleName(), RelicTier.SHOP, LandingSound.CLINK);

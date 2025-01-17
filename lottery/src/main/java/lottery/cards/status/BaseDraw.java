@@ -1,26 +1,19 @@
 package lottery.cards.status;
 
+import cn.hutool.core.util.RandomUtil;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.daily.mods.BlueCards;
-import com.megacrit.cardcrawl.daily.mods.ColorlessCards;
-import com.megacrit.cardcrawl.daily.mods.Diverse;
-import com.megacrit.cardcrawl.daily.mods.GreenCards;
-import com.megacrit.cardcrawl.daily.mods.PurpleCards;
-import com.megacrit.cardcrawl.daily.mods.RedCards;
+import com.megacrit.cardcrawl.daily.mods.*;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-
-import cn.hutool.core.util.RandomUtil;
 import lombok.Builder;
 import lottery.cards.BaseCard;
-
 import org.seven.util.CardStats;
 
 import java.util.ArrayList;
@@ -42,18 +35,18 @@ public abstract class BaseDraw extends BaseCard {
         this.exhaust = true;
         setEthereal(true);
         setExhaust(true);
-        this.exhaustOnUseOnce=true;
+        this.exhaustOnUseOnce = true;
         this.probability = probability;
-    }
-
-    @Override
-    public List<String> getCardDescriptors() {
-        return Arrays.asList("抽卡器");
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return !used;
+    }
+
+
+    public List<String> getCardDescriptors() {
+        return Arrays.asList("抽卡器");
     }
 
     @Override
@@ -116,35 +109,35 @@ public abstract class BaseDraw extends BaseCard {
 
         public AbstractCard getAnyCard(AbstractCard.CardRarity rarity) {
             return RandomUtil.randomEle(CardLibrary.cards.values()
-                .stream()
-                .filter(c -> c.type != CardType.CURSE)
-                .filter(c -> c.type != CardType.STATUS)
-                .filter(c -> (!UnlockTracker.isCardLocked(c.cardID) || Settings.treatEverythingAsUnlocked()))
-                .filter(c -> !NOT_GENERATE_CARD_IDS.contains(c.cardID))
-                .filter(c -> rarity.equals(c.rarity))
-                .filter(c -> {
-                    if (ModHelper.isModEnabled(ColorlessCards.ID) && CardColor.COLORLESS.equals(c.color)) {
-                        return true;
-                    }
-                    if (ModHelper.isModEnabled(Diverse.ID)) {
-                        return true;
-                    } else {
-                        if (ModHelper.isModEnabled(RedCards.ID) && CardColor.RED.equals(c.color)) {
+                    .stream()
+                    .filter(c -> c.type != CardType.CURSE)
+                    .filter(c -> c.type != CardType.STATUS)
+                    .filter(c -> (!UnlockTracker.isCardLocked(c.cardID) || Settings.treatEverythingAsUnlocked()))
+                    .filter(c -> !NOT_GENERATE_CARD_IDS.contains(c.cardID))
+                    .filter(c -> rarity.equals(c.rarity))
+                    .filter(c -> {
+                        if (ModHelper.isModEnabled(ColorlessCards.ID) && CardColor.COLORLESS.equals(c.color)) {
                             return true;
                         }
-                        if (ModHelper.isModEnabled(GreenCards.ID) && CardColor.GREEN.equals(c.color)) {
+                        if (ModHelper.isModEnabled(Diverse.ID)) {
                             return true;
+                        } else {
+                            if (ModHelper.isModEnabled(RedCards.ID) && CardColor.RED.equals(c.color)) {
+                                return true;
+                            }
+                            if (ModHelper.isModEnabled(GreenCards.ID) && CardColor.GREEN.equals(c.color)) {
+                                return true;
+                            }
+                            if (ModHelper.isModEnabled(PurpleCards.ID) && CardColor.PURPLE.equals(c.color)) {
+                                return true;
+                            }
+                            if (ModHelper.isModEnabled(BlueCards.ID) && CardColor.BLUE.equals(c.color)) {
+                                return true;
+                            }
+                            return AbstractDungeon.player.getCardColor().equals(c.color);
                         }
-                        if (ModHelper.isModEnabled(PurpleCards.ID) && CardColor.PURPLE.equals(c.color)) {
-                            return true;
-                        }
-                        if (ModHelper.isModEnabled(BlueCards.ID) && CardColor.BLUE.equals(c.color)) {
-                            return true;
-                        }
-                        return AbstractDungeon.player.getCardColor().equals(c.color);
-                    }
-                })
-                .collect(Collectors.toList()));
+                    })
+                    .collect(Collectors.toList()));
         }
 
         public List<AbstractCard> getCard(int size) {

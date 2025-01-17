@@ -1,5 +1,10 @@
 package lottery.relics;
 
+import basemod.cardmods.EtherealMod;
+import basemod.cardmods.ExhaustMod;
+import basemod.helpers.CardModifierManager;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSONObject;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
@@ -9,39 +14,16 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.RelicAboveCreatureEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
-
-import basemod.cardmods.EtherealMod;
-import basemod.cardmods.ExhaustMod;
-import basemod.helpers.CardModifierManager;
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.json.JSONObject;
 import lottery.LotteryMod;
-import lottery.cards.status.LuckyDraw1;
-import lottery.cards.status.LuckyDraw10;
-import lottery.cards.status.LuckyDraw5;
-import lottery.cards.status.SanLianReward;
-import lottery.cards.status.SuperLuckyDraw1;
-import lottery.cards.status.SuperLuckyDraw10;
-import lottery.cards.status.SuperLuckyDraw5;
-import lottery.cards.status.UnluckyDraw1;
-import lottery.cards.status.UnluckyDraw10;
-import lottery.cards.status.UnluckyDraw5;
-import lottery.cards.status.UsuallyDraw1;
-import lottery.cards.status.UsuallyDraw10;
-import lottery.cards.status.UsuallyDraw5;
-
+import lottery.cards.status.*;
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SanLianRelic extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(SanLianRelic.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(SanLianRelic.class.getSimpleName());
     private static final Set<String> NOT_IN_SAN_LIAN = new HashSet<>();
     public static List<AbstractRelic> THIS_BATTLE_ADD_RELICS = new ArrayList<>();
 

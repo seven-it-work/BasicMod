@@ -8,12 +8,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import lottery.LotteryMod;
+import org.seven.util.QuickStartCard;
 import org.seven.util.CardStats;
 
 public class RandomCopying extends BaseCard {
-    public static final String ID = LotteryMod.resourcePath.makeID(RandomCopying.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(RandomCopying.class.getSimpleName());
 
-    private static final CardStats info = new CardStats(LotteryMod.PlayerColorEnum.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.ATTACK, CardRarity.COMMON,
+    private static final CardStats info = new CardStats(LotteryMod.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.ATTACK, CardRarity.COMMON,
             CardTarget.ENEMY, 1);
 
 

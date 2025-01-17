@@ -7,9 +7,9 @@ import lottery.LotteryMod;
 import org.seven.util.CardStats;
 
 public class DrawCards extends BaseCard {
-    public static final String ID = LotteryMod.resourcePath.makeID(DrawCards.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(DrawCards.class.getSimpleName());
 
-    private static final CardStats info = new CardStats(LotteryMod.PlayerColorEnum.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.SKILL, CardRarity.COMMON,
+    private static final CardStats info = new CardStats(LotteryMod.BASE_LU_SHI_PLAYER_CARD_COLOR, CardType.SKILL, CardRarity.BASIC,
             CardTarget.SELF, 1);
 
 

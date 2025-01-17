@@ -1,19 +1,13 @@
 package lottery.patches.neow;
 
-import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
-import com.evacipated.cardcrawl.modthespire.lib.Matcher;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertLocator;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import basemod.ReflectionHacks;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.vfx.InfiniteSpeechBubble;
-
-import basemod.ReflectionHacks;
 import javassist.CtBehavior;
 import lottery.LotteryMod;
 
@@ -27,7 +21,7 @@ public class NeowEventPatch {
     private static final float DIALOG_Y = AbstractDungeon.floorY + 60.0F * Settings.yScale;
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(
-        LotteryMod.resourcePath.makeID("Blessings"));
+        LotteryMod.MOD.makeID("Blessings"));
 
     public NeowEventPatch() {
     }

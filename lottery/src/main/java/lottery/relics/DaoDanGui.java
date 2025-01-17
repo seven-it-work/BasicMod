@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import lottery.LotteryMod;
-import lottery.actions.PlayCardAction;
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
 public class DaoDanGui extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(DaoDanGui.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(DaoDanGui.class.getSimpleName());
 
 
     public DaoDanGui() {

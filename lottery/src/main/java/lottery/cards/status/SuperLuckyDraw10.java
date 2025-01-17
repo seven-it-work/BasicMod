@@ -1,11 +1,10 @@
 package lottery.cards.status;
 
 import lottery.LotteryMod;
-
 import org.seven.util.CardStats;
 
 public class SuperLuckyDraw10 extends BaseDraw {
-    public static final String ID = LotteryMod.resourcePath.makeID(SuperLuckyDraw10.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(SuperLuckyDraw10.class.getSimpleName());
 
     private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.STATUS, CardRarity.CURSE,
         CardTarget.SELF, 0);

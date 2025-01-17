@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
-
 import lottery.LotteryMod;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 public abstract class LotteryModReward {
     public static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(
-        LotteryMod.resourcePath.makeID("Blessings"));
+        LotteryMod.MOD.makeID("Blessings"));
 
     private static final List<LotteryModReward> commonRewardList = new ArrayList<>();
 

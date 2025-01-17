@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import lottery.LotteryMod;
-import lottery.actions.PlayCardAction;
+import org.seven.util.QuickStartRelic;
 import org.seven.util.GeneralUtils;
 
 public class YingShu extends BaseRelic {
-    public static final String ID = LotteryMod.resourcePath.makeID(YingShu.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(YingShu.class.getSimpleName());
 
 
     public YingShu() {

@@ -1,29 +1,28 @@
 package lottery.cards.status;
 
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.json.JSONObject;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.*;
-
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.json.JSONObject;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
+import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 import lottery.LotteryMod;
 import lottery.cards.BaseCard;
+import lottery.characters.TestMinion;
 import lottery.relics.SanLianRelic;
-
 import org.seven.util.CardStats;
 import org.seven.util.GeneralUtils;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SanLianReward extends BaseCard {
-    public static final String ID = LotteryMod.resourcePath.makeID(SanLianReward.class.getSimpleName());
+    public static final String ID = LotteryMod.MOD.makeID(SanLianReward.class.getSimpleName());
 
     private static final CardStats info = new CardStats(CardColor.COLORLESS, CardType.STATUS, CardRarity.CURSE,
         CardTarget.SELF, 0);
@@ -49,17 +48,8 @@ public class SanLianReward extends BaseCard {
             TinyHouse.ID,
             "Guardian:BottledAnomaly",
             "Guardian:BottledStasis",
-
-            "Astrolabe",
-            "Bottled Flame",
-            "Bottled Lightning",
-            "Bottled Tornado",
-            "Orrery",
-            "Empty Cage",
-            "DollysMirror",
-            "Cauldron",
-            "Tiny House",
-            "bronze:BottledCode"
+            "bronze:BottledCode",
+            ".*?Bottled.*?"
     ));
 
     private int repeatTimes = 0;
@@ -80,8 +70,8 @@ public class SanLianReward extends BaseCard {
 
     private void reDescription() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.set("rarity", " " + LotteryMod.getKeywordsTranslation(this.rarity.name()) + " ");
-        jsonObject.set("relicRarity", " " + LotteryMod.getKeywordsTranslation(getRelicTier().name()) + " ");
+        jsonObject.set("rarity", " " + LotteryMod.MOD.getProperNameByWordName(this.rarity.name()) + " ");
+        jsonObject.set("relicRarity", " " + LotteryMod.MOD.getProperNameByWordName(getRelicTier().name()) + " ");
         this.rawDescription = GeneralUtils.tiHuan(this.originalRawDescription, jsonObject);
         super.initializeDescription();
     }
@@ -112,6 +102,24 @@ public class SanLianReward extends BaseCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        if(abstractPlayer instanceof AbstractPlayerWithMinions) {
+            ArrayList<AbstractCard> temp = new ArrayList<>();
+            temp.add(new SanLianReward());
+            temp.add(new SanLianReward());
+            temp.add(new SanLianReward());
+            temp.add(new SanLianReward());
+            // 这是选卡，选了后在AbstractDungeon.cardRewardScreen.discoveryCard里面
+            AbstractDungeon.cardRewardScreen.customCombatOpen(temp, CardRewardScreen.TEXT[1], false);
+            AbstractDungeon.cardRewardScreen.confirmButton.show();
+            if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
+                AbstractCard abstractCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeCopy();
+            }
+            AbstractPlayerWithMinions player = (AbstractPlayerWithMinions) abstractPlayer;
+            TestMinion minion = new TestMinion(0,0);
+            minion.drawX=abstractPlayer.drawX+100;
+            minion.drawY=abstractPlayer.drawY+100;
+            player.addMinion(minion);
+        }
         for (int i = 0; i < this.magicNumber; i++) {
             // RelicLibrary 中获取
             switch (this.rarity) {
@@ -143,9 +151,9 @@ public class SanLianReward extends BaseCard {
         repeatTimes++;
         AbstractRelic abstractRelic = RandomUtil.randomEle(
             baseList.stream().filter(temp -> {
-                boolean contains = NOT_GENERATE_IDS.contains(temp.relicId);
+                boolean contains = NOT_GENERATE_IDS.stream().anyMatch(temp.relicId::matches);
                 if (!contains){
-                    LotteryMod.logger.debug("包含。onEquip 遗物类名:{}，遗物id：{}，遗物名称:{}",
+                    LotteryMod.logger.info("包含。onEquip 遗物类名:{}，遗物id：{}，遗物名称:{}",
                             temp.getClass().getName(), temp.relicId, temp.name);
 
                 }
